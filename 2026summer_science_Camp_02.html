@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>115年夏日樂學計畫授課表｜趣味課程版</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #dbe3ee;
+      --brand: #2563eb;
+      --brand-2: #16a34a;
+      --soft-blue: #eaf2ff;
+      --soft-green: #eaf8ef;
+      --soft-yellow: #fff7d6;
+      --shadow: 0 12px 30px rgba(15, 23, 42, .10);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top left, #dbeafe 0, transparent 34rem), var(--bg);
+      line-height: 1.65;
+    }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 44px 0 20px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .hero-card, .panel, .table-card {
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(219,227,238,.9);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    .hero-card { padding: 30px; }
+    .eyebrow { color: var(--brand); font-weight: 800; letter-spacing: .08em; font-size: 14px; }
+    h1 { margin: 8px 0 12px; font-size: clamp(30px, 4vw, 48px); line-height: 1.15; }
+    .lead { color: var(--muted); margin: 0; font-size: 17px; }
+    .summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 20px; }
+    .kpi { border-radius: 20px; padding: 18px; background: #f9fbff; border: 1px solid var(--line); }
+    .kpi strong { display: block; font-size: 30px; line-height: 1; }
+    .kpi span { color: var(--muted); font-size: 14px; }
+    .toolbar { margin: 22px 0; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .control {
+      display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--line);
+      border-radius: 16px; padding: 10px 12px; box-shadow: 0 4px 16px rgba(15,23,42,.05);
+    }
+    .control label { font-weight: 700; font-size: 14px; color: #334155; }
+    select, input {
+      border: 0; outline: 0; background: transparent; font: inherit; color: var(--ink); min-width: 120px;
+    }
+    input { min-width: 220px; }
+    button {
+      border: 0; border-radius: 16px; padding: 11px 16px; font: inherit; font-weight: 800;
+      color: #fff; background: var(--brand); cursor: pointer; box-shadow: 0 8px 18px rgba(37, 99, 235, .22);
+    }
+    button.secondary { background: #475569; box-shadow: none; }
+    .panel { padding: 18px; margin-bottom: 22px; }
+    .mini-title { margin: 0 0 12px; font-size: 18px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { border-radius: 999px; padding: 6px 12px; font-size: 14px; font-weight: 700; background: var(--soft-yellow); }
+    .teacher-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .teacher-card { border: 1px solid var(--line); border-radius: 20px; padding: 16px; background: #fff; }
+    .teacher-card h3 { margin: 0 0 8px; font-size: 22px; }
+    .teacher-card .count { font-size: 34px; font-weight: 900; color: var(--brand); }
+    .teacher-card:nth-child(2) .count { color: var(--brand-2); }
+    .bar { height: 10px; border-radius: 999px; background: #e5e7eb; overflow: hidden; margin: 10px 0 4px; }
+    .bar > i { display: block; height: 100%; width: 50%; background: linear-gradient(90deg, var(--brand), #60a5fa); }
+    .teacher-card:nth-child(2) .bar > i { background: linear-gradient(90deg, var(--brand-2), #86efac); }
+    .table-card { overflow: hidden; }
+    .table-head { padding: 18px 20px; display: flex; justify-content: space-between; gap: 12px; align-items: center; border-bottom: 1px solid var(--line); }
+    .table-head h2 { margin: 0; font-size: 22px; }
+    .result-count { color: var(--muted); font-weight: 700; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 860px; background: #fff; }
+    thead th {
+      position: sticky; top: 0; z-index: 1; background: #f1f5f9; color: #334155;
+      text-align: left; padding: 12px 14px; font-size: 14px; border-bottom: 1px solid var(--line);
+    }
+    tbody td { padding: 12px 14px; border-bottom: 1px solid #edf2f7; vertical-align: top; }
+    tbody tr:hover { background: #f8fafc; }
+    .date-cell { font-weight: 900; white-space: nowrap; }
+    .badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-weight: 800; font-size: 13px; }
+    .class-a { background: var(--soft-blue); color: #1d4ed8; }
+    .class-b { background: var(--soft-green); color: #15803d; }
+    .teacher-a { background: #eff6ff; color: #1d4ed8; }
+    .teacher-b { background: #ecfdf5; color: #047857; }
+    .course { font-weight: 800; }
+    footer { color: var(--muted); font-size: 13px; padding: 24px 0 40px; }
+    .empty { padding: 36px; text-align: center; color: var(--muted); font-weight: 700; }
+    @media (max-width: 780px) {
+      .hero, .teacher-card-grid { grid-template-columns: 1fr; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-card { padding: 22px; }
+      input { min-width: 180px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .toolbar, button { display: none !important; }
+      .hero, .teacher-card-grid { grid-template-columns: 1fr 1fr; }
+      .hero-card, .panel, .table-card { box-shadow: none; border: 1px solid #999; }
+      table { min-width: 0; font-size: 12px; }
+      thead th { position: static; }
+      .wrap { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="hero">
+      <section class="hero-card">
+        <div class="eyebrow">115年夏日樂學計畫</div>
+        <h1>陳賢宗・劉秋岑<br>授課表網頁版 02</h1>
+        <p class="lead">依日期與時間排序，整合甲班、乙班授課資訊，可用教師、班別與關鍵字快速篩選。</p>
+      </section>
+      <aside class="hero-card summary-grid" aria-label="課表摘要">
+        <div class="kpi"><strong>60</strong><span>總授課節數</span></div>
+        <div class="kpi"><strong>2</strong><span>授課教師</span></div>
+        <div class="kpi"><strong>10</strong><span>日期區間天數</span></div>
+        <div class="kpi"><strong>甲・乙</strong><span>班別</span></div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel teacher-card-grid">
+      <article class="teacher-card">
+        <h3>陳賢宗</h3>
+        <div class="count">36 節</div>
+        <div class="bar"><i style="width: 60%;"></i></div>
+        <div class="chips"><span class="chip">甲班 18 節</span><span class="chip">乙班 18 節</span></div>
+      </article>
+      <article class="teacher-card">
+        <h3>劉秋岑</h3>
+        <div class="count">24 節</div>
+        <div class="bar"><i style="width: 40%;"></i></div>
+        <div class="chips"><span class="chip">甲班 12 節</span><span class="chip">乙班 12 節</span></div>
+      </article>
+    </section>
+
+    <section class="toolbar" aria-label="篩選工具列">
+      <div class="control">
+        <label for="teacherFilter">教師</label>
+        <select id="teacherFilter">
+          <option value="">全部</option>
+          <option value="陳賢宗">陳賢宗</option>
+          <option value="劉秋岑">劉秋岑</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="classFilter">班別</label>
+        <select id="classFilter">
+          <option value="">全部</option>
+          <option value="甲班">甲班</option>
+          <option value="乙班">乙班</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="searchInput">搜尋</label>
+        <input id="searchInput" type="search" placeholder="輸入課程、日期、時間…" />
+      </div>
+      <button id="resetBtn" class="secondary">清除篩選</button>
+      <button onclick="window.print()">列印</button>
+    </section>
+
+    <section class="table-card">
+      <div class="table-head">
+        <h2>授課明細</h2>
+        <div class="result-count" id="resultCount">共 60 筆</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>日期</th><th>星期</th><th>班別</th><th>節次</th><th>時間</th><th>教師</th><th>課程</th>
+            </tr>
+          </thead>
+          <tbody id="scheduleBody"></tbody>
+        </table>
+      </div>
+      <div id="emptyMsg" class="empty" hidden>沒有符合條件的課程。</div>
+    </section>
+  </main>
+
+  <footer class="wrap"></footer>
+
+  <script>
+    const scheduleData = [
+  {
+    "date": "2026-07-06",
+    "dateLabel": "7/6",
+    "weekday": "一",
+    "className": "甲班",
+    "periodOrder": 1,
+    "period": "第1節",
+    "time": "08:00-08:40",
+    "teacher": "陳賢宗",
+    "course": "空氣水力大挑戰"
+  },
+  {
+    "date": "2026-07-06",
+    "dateLabel": "7/6",
+    "weekday": "一",
+    "className": "甲班",
+    "periodOrder": 2,
+    "period": "第2節",
+    "time": "08:50-09:30",
+    "teacher": "陳賢宗",
+    "course": "空氣水力大挑戰"
+  },
+  {
+    "date": "2026-07-06",
+    "dateLabel": "7/6",
+    "weekday": "一",
+    "className": "甲班",
+    "periodOrder": 3,
+    "period": "第3節",
+    "time": "09:40-10:20",
+    "teacher": "陳賢宗",
+    "course": "空氣水力大挑戰"
+  },
+  {
+    "date": "2026-07-06",
+    "dateLabel": "7/6",
+    "weekday": "一",
+    "className": "乙班",
+    "periodOrder": 4,
+    "period": "第4節",
+    "time": "10:30-11:10",
+    "teacher": "陳賢宗",
+    "course": "聲音魔法實驗室"
+  },
+  {
+    "date": "2026-07-06",
+    "dateLabel": "7/6",
+    "weekday": "一",
+    "className": "乙班",
+    "periodOrder": 5,
+    "period": "第5節",
+    "time": "11:20-12:00",
+    "teacher": "陳賢宗",
+    "course": "聲音魔法實驗室"
+  },
+  {
+    "date": "2026-07-06",
+    "dateLabel": "7/6",
+    "weekday": "一",
+    "className": "乙班",
+    "periodOrder": 6,
+    "period": "第6節",
+    "time": "13:20-14:00",
+    "teacher": "陳賢宗",
+    "course": "聲音魔法實驗室"
+  },
+  {
+    "date": "2026-07-07",
+    "dateLabel": "7/7",
+    "weekday": "二",
+    "className": "甲班",
+    "periodOrder": 1,
+    "period": "第1節",
+    "time": "08:00-08:40",
+    "teacher": "劉秋岑",
+    "course": "溫度魔法變變變"
+  },
+  {
+    "date": "2026-07-07",
+    "dateLabel": "7/7",
+    "weekday": "二",
+    "className": "甲班",
+    "periodOrder": 2,
+    "period": "第2節",
+    "time": "08:50-09:30",
+    "teacher": "劉秋岑",
+    "course": "溫度魔法變變變"
+  },
+  {
+    "date": "2026-07-07",
+    "dateLabel": "7/7",
+    "weekday": "二",
+    "className": "甲班",
+    "periodOrder": 3,
+    "period": "第3節",
+    "time": "09:40-10:20",
+    "teacher": "劉秋岑",
+    "course": "溫度魔法變變變"
+  },
+  {
+    "date": "2026-07-07",
+    "dateLabel": "7/7",
+    "weekday": "二",
+    "className": "乙班",
+    "periodOrder": 4,
+    "period": "第4節",
+    "time": "10:30-11:10",
+    "teacher": "劉秋岑",
+    "course": "力量偵探大挑戰"
+  },
+  {
+    "date": "2026-07-07",
+    "dateLabel": "7/7",
+    "weekday": "二",
+    "className": "乙班",
+    "periodOrder": 5,
+    "period": "第5節",
+    "time": "11:20-12:00",
+    "teacher": "劉秋岑",
+    "course": "平衡高手闖關"
+  },
+  {
+    "date": "2026-07-07",
+    "dateLabel": "7/7",
+    "weekday": "二",
+    "className": "乙班",
+    "periodOrder": 6,
+    "period": "第6節",
+    "time": "13:20-14:00",
+    "teacher": "劉秋岑",
+    "course": "平衡高手闖關"
+  },
+  {
+    "date": "2026-07-08",
+    "dateLabel": "7/8",
+    "weekday": "三",
+    "className": "甲班",
+    "periodOrder": 1,
+    "period": "第1節",
+    "time": "08:00-08:40",
+    "teacher": "陳賢宗",
+    "course": "磁力探險隊"
+  },
+  {
+    "date": "2026-07-08",
+    "dateLabel": "7/8",
+    "weekday": "三",
+    "className": "甲班",
+    "periodOrder": 2,
+    "period": "第2節",
+    "time": "08:50-09:30",
+    "teacher": "陳賢宗",
+    "course": "磁力探險隊"
+  },
+  {
+    "date": "2026-07-08",
+    "dateLabel": "7/8",
+    "weekday": "三",
+    "className": "甲班",
+    "periodOrder": 3,
+    "period": "第3節",
+    "time": "09:40-10:20",
+    "teacher": "陳賢宗",
+    "course": "磁力探險隊"
+  },
+  {
+    "date": "2026-07-08",
+    "dateLabel": "7/8",
+    "weekday": "三",
+    "className": "乙班",
+    "periodOrder": 4,
+    "period": "第4節",
+    "time": "10:30-11:10",
+    "teacher": "陳賢宗",
+    "course": "火焰形成三密碼"
+  },
+  {
+    "date": "2026-07-08",
+    "dateLabel": "7/8",
+    "weekday": "三",
+    "className": "乙班",
+    "periodOrder": 5,
+    "period": "第5節",
+    "time": "11:20-12:00",
+    "teacher": "陳賢宗",
+    "course": "滅火英雄任務"
+  },
+  {
+    "date": "2026-07-08",
+    "dateLabel": "7/8",
+    "weekday": "三",
+    "className": "乙班",
+    "periodOrder": 6,
+    "period": "第6節",
+    "time": "13:20-14:00",
+    "teacher": "陳賢宗",
+    "course": "鐵鏽怪獸防衛戰"
+  },
+  {
+    "date": "2026-07-09",
+    "dateLabel": "7/9",
+    "weekday": "四",
+    "className": "甲班",
+    "periodOrder": 1,
+    "period": "第1節",
+    "time": "08:00-08:40",
+    "teacher": "劉秋岑",
+    "course": "力量箭頭挑戰"
+  },
+  {
+    "date": "2026-07-09",
+    "dateLabel": "7/9",
+    "weekday": "四",
+    "className": "甲班",
+    "periodOrder": 2,
+    "period": "第2節",
+    "time": "08:50-09:30",
+    "teacher": "劉秋岑",
+    "course": "力量箭頭挑戰"
+  },
+  {
+    "date": "2026-07-09",
+    "dateLabel": "7/9",
+    "weekday": "四",
+    "className": "甲班",
+    "periodOrder": 3,
+    "period": "第3節",
+    "time": "09:40-10:20",
+    "teacher": "劉秋岑",
+    "course": "力量箭頭挑戰"
+  },
+  {
+    "date": "2026-07-09",
+    "dateLabel": "7/9",
+    "weekday": "四",
+    "className": "乙班",
+    "periodOrder": 4,
+    "period": "第4節",
+    "time": "10:30-11:10",
+    "teacher": "劉秋岑",
+    "course": "力量偵探大挑戰"
+  },
+  {
+    "date": "2026-07-09",
+    "dateLabel": "7/9",
+    "weekday": "四",
+    "className": "乙班",
+    "periodOrder": 5,
+    "period": "第5節",
+    "time": "11:20-12:00",
+    "teacher": "劉秋岑",
+    "course": "平衡高手闖關"
+  },
+  {
+    "date": "2026-07-09",
+    "dateLabel": "7/9",
+    "weekday": "四",
+    "className": "乙班",
+    "periodOrder": 6,
+    "period": "第6節",
+    "time": "13:20-14:00",
+    "teacher": "劉秋岑",
+    "course": "平衡高手闖關"
+  },
+  {
+    "date": "2026-07-10",
+    "dateLabel": "7/10",
+    "weekday": "五",
+    "className": "甲班",
+    "periodOrder": 1,
+    "period": "第1節",
+    "time": "08:00-08:40",
+    "teacher": "陳賢宗",
+    "course": "點亮燈泡任務"
+  },
+  {
+    "date": "2026-07-10",
+    "dateLabel": "7/10",
+    "weekday": "五",
+    "className": "甲班",
+    "periodOrder": 2,
+    "period": "第2節",
+    "time": "08:50-09:30",
+    "teacher": "陳賢宗",
+    "course": "點亮燈泡任務"
+  },
+  {
+    "date": "2026-07-10",
+    "dateLabel": "7/10",
+    "weekday": "五",
+    "className": "甲班",
+    "periodOrder": 3,
+    "period": "第3節",
+    "time": "09:40-10:20",
+    "teacher": "陳賢宗",
+    "course": "點亮燈泡任務"
+  },
+  {
+    "date": "2026-07-10",
+    "dateLabel": "7/10",
+    "weekday": "五",
+    "className": "乙班",
+    "periodOrder": 4,
+    "period": "第4節",
+    "time": "10:30-11:10",
+    "teacher": "陳賢宗",
+    "course": "導電水溶液偵探"
+  },
+  {
+    "date": "2026-07-10",
+    "dateLabel": "7/10",
+    "weekday": "五",
+    "className": "乙班",
+    "periodOrder": 5,
+    "period": "第5節",
+    "time": "11:20-12:00",
+    "teacher": "陳賢宗",
+    "course": "酸鹼變身實驗室"
+  },
+  {
+    "date": "2026-07-10",
+    "dateLabel": "7/10",
+    "weekday": "五",
+    "className": "乙班",
+    "periodOrder": 6,
+    "period": "第6節",
+    "time": "13:20-14:00",
+    "teacher": "陳賢宗",
+    "course": "酸鹼偵測任務"
+  },
+  {
+    "date": "2026-07-13",
+    "dateLabel": "7/13",
+    "weekday": "一",
+    "className": "甲班",
+    "periodOrder": 1,
+    "period": "第1節",
+    "time": "08:00-08:40",
+    "teacher": "陳賢宗",
+    "course": "廚房科學魔法秀"
+  },
+  {
+    "date": "2026-07-13",
+    "dateLabel": "7/13",
+    "weekday": "一",
+    "className": "甲班",
+    "periodOrder": 2,
+    "period": "第2節",
+    "time": "08:50-09:30",
+    "teacher": "陳賢宗",
+    "course": "廚房科學魔法秀"
+  },
+  {
+    "date": "2026-07-13",
+    "dateLabel": "7/13",
+    "weekday": "一",
+    "className": "甲班",
+    "periodOrder": 3,
+    "period": "第3節",
+    "time": "09:40-10:20",
+    "teacher": "陳賢宗",
+    "course": "廚房科學魔法秀"
+  },
+  {
+    "date": "2026-07-13",
+    "dateLabel": "7/13",
+    "weekday": "一",
+    "className": "乙班",
+    "periodOrder": 4,
+    "period": "第4節",
+    "time": "10:30-11:10",
+    "teacher": "陳賢宗",
+    "course": "熱能接力賽"
+  },
+  {
+    "date": "2026-07-13",
+    "dateLabel": "7/13",
+    "weekday": "一",
+    "className": "乙班",
+    "periodOrder": 5,
+    "period": "第5節",
+    "time": "11:20-12:00",
+    "teacher": "陳賢宗",
+    "course": "熱流旋風探險"
+  },
+  {
+    "date": "2026-07-13",
+    "dateLabel": "7/13",
+    "weekday": "一",
+    "className": "乙班",
+    "periodOrder": 6,
+    "period": "第6節",
+    "time": "13:20-14:00",
+    "teacher": "陳賢宗",
+    "course": "看不見的熱光線"
+  },
+  {
+    "date": "2026-07-14",
+    "dateLabel": "7/14",
+    "weekday": "二",
+    "className": "甲班",
+    "periodOrder": 1,
+    "period": "第1節",
+    "time": "08:00-08:40",
+    "teacher": "劉秋岑",
+    "course": "空氣流動探險隊"
+  },
+  {
+    "date": "2026-07-14",
+    "dateLabel": "7/14",
+    "weekday": "二",
+    "className": "甲班",
+    "periodOrder": 2,
+    "period": "第2節",
+    "time": "08:50-09:30",
+    "teacher": "劉秋岑",
+    "course": "空氣流動探險隊"
+  },
+  {
+    "date": "2026-07-14",
+    "dateLabel": "7/14",
+    "weekday": "二",
+    "className": "甲班",
+    "periodOrder": 3,
+    "period": "第3節",
+    "time": "09:40-10:20",
+    "teacher": "劉秋岑",
+    "course": "空氣流動探險隊"
+  },
+  {
+    "date": "2026-07-14",
+    "dateLabel": "7/14",
+    "weekday": "二",
+    "className": "乙班",
+    "periodOrder": 4,
+    "period": "第4節",
+    "time": "10:30-11:10",
+    "teacher": "劉秋岑",
+    "course": "電磁鐵超能力工坊"
+  },
+  {
+    "date": "2026-07-14",
+    "dateLabel": "7/14",
+    "weekday": "二",
+    "className": "乙班",
+    "periodOrder": 5,
+    "period": "第5節",
+    "time": "11:20-12:00",
+    "teacher": "劉秋岑",
+    "course": "電磁鐵超能力工坊"
+  },
+  {
+    "date": "2026-07-14",
+    "dateLabel": "7/14",
+    "weekday": "二",
+    "className": "乙班",
+    "periodOrder": 6,
+    "period": "第6節",
+    "time": "13:20-14:00",
+    "teacher": "劉秋岑",
+    "course": "電磁鐵超能力工坊"
+  },
+  {
+    "date": "2026-07-15",
+    "dateLabel": "7/15",
+    "weekday": "三",
+    "className": "甲班",
+    "periodOrder": 1,
+    "period": "第1節",
+    "time": "08:00-08:40",
+    "teacher": "陳賢宗",
+    "course": "浮力船長挑戰"
+  },
+  {
+    "date": "2026-07-15",
+    "dateLabel": "7/15",
+    "weekday": "三",
+    "className": "甲班",
+    "periodOrder": 2,
+    "period": "第2節",
+    "time": "08:50-09:30",
+    "teacher": "陳賢宗",
+    "course": "浮力船長挑戰"
+  },
+  {
+    "date": "2026-07-15",
+    "dateLabel": "7/15",
+    "weekday": "三",
+    "className": "甲班",
+    "periodOrder": 3,
+    "period": "第3節",
+    "time": "09:40-10:20",
+    "teacher": "陳賢宗",
+    "course": "浮力船長挑戰"
+  },
+  {
+    "date": "2026-07-15",
+    "dateLabel": "7/15",
+    "weekday": "三",
+    "className": "乙班",
+    "periodOrder": 4,
+    "period": "第4節",
+    "time": "10:30-11:10",
+    "teacher": "陳賢宗",
+    "course": "槓桿省力大挑戰"
+  },
+  {
+    "date": "2026-07-15",
+    "dateLabel": "7/15",
+    "weekday": "三",
+    "className": "乙班",
+    "periodOrder": 5,
+    "period": "第5節",
+    "time": "11:20-12:00",
+    "teacher": "陳賢宗",
+    "course": "槓桿省力大挑戰"
+  },
+  {
+    "date": "2026-07-15",
+    "dateLabel": "7/15",
+    "weekday": "三",
+    "className": "乙班",
+    "periodOrder": 6,
+    "period": "第6節",
+    "time": "13:20-14:00",
+    "teacher": "陳賢宗",
+    "course": "槓桿省力大挑戰"
+  },
+  {
+    "date": "2026-07-16",
+    "dateLabel": "7/16",
+    "weekday": "四",
+    "className": "甲班",
+    "periodOrder": 1,
+    "period": "第1節",
+    "time": "08:00-08:40",
+    "teacher": "劉秋岑",
+    "course": "電路闖關王"
+  },
+  {
+    "date": "2026-07-16",
+    "dateLabel": "7/16",
+    "weekday": "四",
+    "className": "甲班",
+    "periodOrder": 2,
+    "period": "第2節",
+    "time": "08:50-09:30",
+    "teacher": "劉秋岑",
+    "course": "電路闖關王"
+  },
+  {
+    "date": "2026-07-16",
+    "dateLabel": "7/16",
+    "weekday": "四",
+    "className": "甲班",
+    "periodOrder": 3,
+    "period": "第3節",
+    "time": "09:40-10:20",
+    "teacher": "劉秋岑",
+    "course": "電路闖關王"
+  },
+  {
+    "date": "2026-07-16",
+    "dateLabel": "7/16",
+    "weekday": "四",
+    "className": "乙班",
+    "periodOrder": 4,
+    "period": "第4節",
+    "time": "10:30-11:10",
+    "teacher": "劉秋岑",
+    "course": "生活中的電磁魔法"
+  },
+  {
+    "date": "2026-07-16",
+    "dateLabel": "7/16",
+    "weekday": "四",
+    "className": "乙班",
+    "periodOrder": 5,
+    "period": "第5節",
+    "time": "11:20-12:00",
+    "teacher": "劉秋岑",
+    "course": "生活中的電磁魔法"
+  },
+  {
+    "date": "2026-07-16",
+    "dateLabel": "7/16",
+    "weekday": "四",
+    "className": "乙班",
+    "periodOrder": 6,
+    "period": "第6節",
+    "time": "13:20-14:00",
+    "teacher": "劉秋岑",
+    "course": "生活中的電磁魔法"
+  },
+  {
+    "date": "2026-07-17",
+    "dateLabel": "7/17",
+    "weekday": "五",
+    "className": "甲班",
+    "periodOrder": 1,
+    "period": "第1節",
+    "time": "08:00-08:40",
+    "teacher": "陳賢宗",
+    "course": "摩擦力生活任務"
+  },
+  {
+    "date": "2026-07-17",
+    "dateLabel": "7/17",
+    "weekday": "五",
+    "className": "甲班",
+    "periodOrder": 2,
+    "period": "第2節",
+    "time": "08:50-09:30",
+    "teacher": "陳賢宗",
+    "course": "摩擦力生活任務"
+  },
+  {
+    "date": "2026-07-17",
+    "dateLabel": "7/17",
+    "weekday": "五",
+    "className": "甲班",
+    "periodOrder": 3,
+    "period": "第3節",
+    "time": "09:40-10:20",
+    "teacher": "陳賢宗",
+    "course": "摩擦力生活任務"
+  },
+  {
+    "date": "2026-07-17",
+    "dateLabel": "7/17",
+    "weekday": "五",
+    "className": "乙班",
+    "periodOrder": 4,
+    "period": "第4節",
+    "time": "10:30-11:10",
+    "teacher": "陳賢宗",
+    "course": "天氣偵探觀察站"
+  },
+  {
+    "date": "2026-07-17",
+    "dateLabel": "7/17",
+    "weekday": "五",
+    "className": "乙班",
+    "periodOrder": 5,
+    "period": "第5節",
+    "time": "11:20-12:00",
+    "teacher": "陳賢宗",
+    "course": "天氣偵探觀察站"
+  },
+  {
+    "date": "2026-07-17",
+    "dateLabel": "7/17",
+    "weekday": "五",
+    "className": "乙班",
+    "periodOrder": 6,
+    "period": "第6節",
+    "time": "13:20-14:00",
+    "teacher": "陳賢宗",
+    "course": "天氣偵探觀察站"
+  }
+];
+    const teacherFilter = document.getElementById('teacherFilter');
+    const classFilter = document.getElementById('classFilter');
+    const searchInput = document.getElementById('searchInput');
+    const tbody = document.getElementById('scheduleBody');
+    const count = document.getElementById('resultCount');
+    const empty = document.getElementById('emptyMsg');
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    }
+
+    function render() {
+      const t = teacherFilter.value;
+      const c = classFilter.value;
+      const q = searchInput.value.trim().toLowerCase();
+      const rows = scheduleData.filter(item => {
+        const text = Object.values(item).join(' ').toLowerCase();
+        return (!t || item.teacher === t) && (!c || item.className === c) && (!q || text.includes(q));
+      });
+      tbody.innerHTML = rows.map(item => `
+        <tr>
+          <td class="date-cell">${escapeHtml(item.dateLabel)}</td>
+          <td>${escapeHtml(item.weekday)}</td>
+          <td><span class="badge ${item.className === '甲班' ? 'class-a' : 'class-b'}">${escapeHtml(item.className)}</span></td>
+          <td>${escapeHtml(item.period)}</td>
+          <td>${escapeHtml(item.time)}</td>
+          <td><span class="badge ${item.teacher === '陳賢宗' ? 'teacher-a' : 'teacher-b'}">${escapeHtml(item.teacher)}</span></td>
+          <td class="course">${escapeHtml(item.course)}</td>
+        </tr>
+      `).join('');
+      count.textContent = `共 ${rows.length} 筆`;
+      empty.hidden = rows.length !== 0;
+    }
+
+    [teacherFilter, classFilter, searchInput].forEach(el => el.addEventListener('input', render));
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      teacherFilter.value = '';
+      classFilter.value = '';
+      searchInput.value = '';
+      render();
+    });
+    render();
+  </script>
+</body>
+</html>
