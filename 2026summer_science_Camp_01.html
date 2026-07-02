@@ -122,7 +122,7 @@
         <p class="lead">依日期與時間排序，整合甲班、乙班授課資訊，可用教師、班別與關鍵字快速篩選。</p>
       </section>
       <aside class="hero-card summary-grid" aria-label="課表摘要">
-        <div class="kpi"><strong>60</strong><span>總授課節數</span></div>
+        <div class="kpi"><strong>80</strong><span>總授課節數</span></div>
         <div class="kpi"><strong>2</strong><span>授課教師</span></div>
         <div class="kpi"><strong>10</strong><span>日期區間天數</span></div>
         <div class="kpi"><strong>甲・乙</strong><span>班別</span></div>
@@ -134,15 +134,15 @@
     <section class="panel teacher-card-grid">
       <article class="teacher-card">
         <h3>陳賢宗</h3>
-        <div class="count">30 節</div>
-        <div class="bar"><i></i></div>
-        <div class="chips"><span class="chip">甲班 15 節</span><span class="chip">乙班 15 節</span></div>
+        <div class="count">48 節</div>
+        <div class="bar"><i style="width: 60%;"></i></div>
+        <div class="chips"><span class="chip">甲班 24 節</span><span class="chip">乙班 24 節</span></div>
       </article>
       <article class="teacher-card">
         <h3>劉秋岑</h3>
-        <div class="count">30 節</div>
-        <div class="bar"><i></i></div>
-        <div class="chips"><span class="chip">甲班 15 節</span><span class="chip">乙班 15 節</span></div>
+        <div class="count">32 節</div>
+        <div class="bar"><i style="width: 40%;"></i></div>
+        <div class="chips"><span class="chip">甲班 16 節</span><span class="chip">乙班 16 節</span></div>
       </article>
     </section>
 
@@ -174,7 +174,7 @@
     <section class="table-card">
       <div class="table-head">
         <h2>授課明細</h2>
-        <div class="result-count" id="resultCount">共 60 筆</div>
+        <div class="result-count" id="resultCount">共 80 筆</div>
       </div>
       <div class="table-wrap">
         <table>
@@ -190,673 +190,891 @@
     </section>
   </main>
 
-  <footer class="wrap">
-    資料來源：115年夏日樂學計畫甲班課程表第 5 頁、乙班課程表第 7 頁。製作日期：2026/06/12。
-  </footer>
+  <footer class="wrap"></footer>
 
   <script>
     const scheduleData = [
-  {
-    "date": "2026-07-06",
-    "dateLabel": "7/6",
-    "weekday": "一",
-    "className": "甲班",
-    "periodOrder": 2,
-    "period": "第2節",
-    "time": "09:00-09:40",
-    "teacher": "劉秋岑",
-    "course": "空氣和水的壓縮與傳動"
-  },
-  {
-    "date": "2026-07-06",
-    "dateLabel": "7/6",
-    "weekday": "一",
-    "className": "甲班",
-    "periodOrder": 3,
-    "period": "第3節",
-    "time": "09:40-10:20",
-    "teacher": "劉秋岑",
-    "course": "空氣和水的壓縮與傳動"
-  },
-  {
-    "date": "2026-07-06",
-    "dateLabel": "7/6",
-    "weekday": "一",
-    "className": "甲班",
-    "periodOrder": 4,
-    "period": "第4節",
-    "time": "10:40-11:20",
-    "teacher": "劉秋岑",
-    "course": "空氣和水的壓縮與傳動"
-  },
-  {
-    "date": "2026-07-06",
-    "dateLabel": "7/6",
-    "weekday": "一",
-    "className": "乙班",
-    "periodOrder": 5,
-    "period": "第5節",
-    "time": "11:20-12:00",
-    "teacher": "劉秋岑",
-    "course": "樂器如何發出不同的聲音"
-  },
-  {
-    "date": "2026-07-06",
-    "dateLabel": "7/6",
-    "weekday": "一",
-    "className": "乙班",
-    "periodOrder": 6,
-    "period": "第6節",
-    "time": "13:00-13:40",
-    "teacher": "劉秋岑",
-    "course": "樂器如何發出不同的聲音"
-  },
-  {
-    "date": "2026-07-06",
-    "dateLabel": "7/6",
-    "weekday": "一",
-    "className": "乙班",
-    "periodOrder": 7,
-    "period": "第7節",
-    "time": "13:40-14:20",
-    "teacher": "劉秋岑",
-    "course": "光有什麼特性與現象"
-  },
-  {
-    "date": "2026-07-07",
-    "dateLabel": "7/7",
-    "weekday": "二",
-    "className": "甲班",
-    "periodOrder": 1,
-    "period": "第1節",
-    "time": "08:20-09:00",
-    "teacher": "陳賢宗",
-    "course": "溫度的改變對物質的影響"
-  },
-  {
-    "date": "2026-07-07",
-    "dateLabel": "7/7",
-    "weekday": "二",
-    "className": "甲班",
-    "periodOrder": 2,
-    "period": "第2節",
-    "time": "09:00-09:40",
-    "teacher": "陳賢宗",
-    "course": "溫度的改變對物質的影響"
-  },
-  {
-    "date": "2026-07-07",
-    "dateLabel": "7/7",
-    "weekday": "二",
-    "className": "甲班",
-    "periodOrder": 3,
-    "period": "第3節",
-    "time": "09:40-10:20",
-    "teacher": "陳賢宗",
-    "course": "溫度的改變對物質的影響"
-  },
-  {
-    "date": "2026-07-07",
-    "dateLabel": "7/7",
-    "weekday": "二",
-    "className": "乙班",
-    "periodOrder": 4,
-    "period": "第4節",
-    "time": "10:40-11:20",
-    "teacher": "陳賢宗",
-    "course": "如何知道力的大小"
-  },
-  {
-    "date": "2026-07-07",
-    "dateLabel": "7/7",
-    "weekday": "二",
-    "className": "乙班",
-    "periodOrder": 5,
-    "period": "第5節",
-    "time": "11:20-12:00",
-    "teacher": "陳賢宗",
-    "course": "如何保持力的平衡"
-  },
-  {
-    "date": "2026-07-07",
-    "dateLabel": "7/7",
-    "weekday": "二",
-    "className": "乙班",
-    "periodOrder": 6,
-    "period": "第6節",
-    "time": "13:00-13:40",
-    "teacher": "陳賢宗",
-    "course": "如何保持力的平衡"
-  },
-  {
-    "date": "2026-07-08",
-    "dateLabel": "7/8",
-    "weekday": "三",
-    "className": "甲班",
-    "periodOrder": 1,
-    "period": "第1節",
-    "time": "08:20-09:00",
-    "teacher": "劉秋岑",
-    "course": "磁鐵與生活"
-  },
-  {
-    "date": "2026-07-08",
-    "dateLabel": "7/8",
-    "weekday": "三",
-    "className": "甲班",
-    "periodOrder": 2,
-    "period": "第2節",
-    "time": "09:00-09:40",
-    "teacher": "劉秋岑",
-    "course": "磁鐵與生活"
-  },
-  {
-    "date": "2026-07-08",
-    "dateLabel": "7/8",
-    "weekday": "三",
-    "className": "甲班",
-    "periodOrder": 3,
-    "period": "第3節",
-    "time": "09:40-10:20",
-    "teacher": "劉秋岑",
-    "course": "磁鐵與生活"
-  },
-  {
-    "date": "2026-07-08",
-    "dateLabel": "7/8",
-    "weekday": "三",
-    "className": "乙班",
-    "periodOrder": 4,
-    "period": "第4節",
-    "time": "10:40-11:20",
-    "teacher": "劉秋岑",
-    "course": "燃燒的條件與如何滅火"
-  },
-  {
-    "date": "2026-07-08",
-    "dateLabel": "7/8",
-    "weekday": "三",
-    "className": "乙班",
-    "periodOrder": 5,
-    "period": "第5節",
-    "time": "11:20-12:00",
-    "teacher": "劉秋岑",
-    "course": "燃燒的條件與如何滅火"
-  },
-  {
-    "date": "2026-07-08",
-    "dateLabel": "7/8",
-    "weekday": "三",
-    "className": "乙班",
-    "periodOrder": 6,
-    "period": "第6節",
-    "time": "13:00-13:40",
-    "teacher": "劉秋岑",
-    "course": "為何會生鏽與如何防鏽"
-  },
-  {
-    "date": "2026-07-09",
-    "dateLabel": "7/9",
-    "weekday": "四",
-    "className": "甲班",
-    "periodOrder": 1,
-    "period": "第1節",
-    "time": "08:20-09:00",
-    "teacher": "陳賢宗",
-    "course": "力的表示方法"
-  },
-  {
-    "date": "2026-07-09",
-    "dateLabel": "7/9",
-    "weekday": "四",
-    "className": "甲班",
-    "periodOrder": 2,
-    "period": "第2節",
-    "time": "09:00-09:40",
-    "teacher": "陳賢宗",
-    "course": "力的表示方法"
-  },
-  {
-    "date": "2026-07-09",
-    "dateLabel": "7/9",
-    "weekday": "四",
-    "className": "甲班",
-    "periodOrder": 3,
-    "period": "第3節",
-    "time": "09:40-10:20",
-    "teacher": "陳賢宗",
-    "course": "力的表示方法"
-  },
-  {
-    "date": "2026-07-09",
-    "dateLabel": "7/9",
-    "weekday": "四",
-    "className": "乙班",
-    "periodOrder": 4,
-    "period": "第4節",
-    "time": "10:40-11:20",
-    "teacher": "陳賢宗",
-    "course": "如何知道力的大小"
-  },
-  {
-    "date": "2026-07-09",
-    "dateLabel": "7/9",
-    "weekday": "四",
-    "className": "乙班",
-    "periodOrder": 5,
-    "period": "第5節",
-    "time": "11:20-12:00",
-    "teacher": "陳賢宗",
-    "course": "如何保持力的平衡"
-  },
-  {
-    "date": "2026-07-09",
-    "dateLabel": "7/9",
-    "weekday": "四",
-    "className": "乙班",
-    "periodOrder": 6,
-    "period": "第6節",
-    "time": "13:00-13:40",
-    "teacher": "陳賢宗",
-    "course": "如何保持力的平衡"
-  },
-  {
-    "date": "2026-07-10",
-    "dateLabel": "7/10",
-    "weekday": "五",
-    "className": "甲班",
-    "periodOrder": 1,
-    "period": "第1節",
-    "time": "08:20-09:00",
-    "teacher": "劉秋岑",
-    "course": "讓燈泡亮的方式"
-  },
-  {
-    "date": "2026-07-10",
-    "dateLabel": "7/10",
-    "weekday": "五",
-    "className": "甲班",
-    "periodOrder": 2,
-    "period": "第2節",
-    "time": "09:00-09:40",
-    "teacher": "劉秋岑",
-    "course": "讓燈泡亮的方式"
-  },
-  {
-    "date": "2026-07-10",
-    "dateLabel": "7/10",
-    "weekday": "五",
-    "className": "甲班",
-    "periodOrder": 3,
-    "period": "第3節",
-    "time": "09:40-10:20",
-    "teacher": "劉秋岑",
-    "course": "讓燈泡亮的方式"
-  },
-  {
-    "date": "2026-07-10",
-    "dateLabel": "7/10",
-    "weekday": "五",
-    "className": "乙班",
-    "periodOrder": 4,
-    "period": "第4節",
-    "time": "10:40-11:20",
-    "teacher": "劉秋岑",
-    "course": "水溶液可以導電嗎"
-  },
-  {
-    "date": "2026-07-10",
-    "dateLabel": "7/10",
-    "weekday": "五",
-    "className": "乙班",
-    "periodOrder": 5,
-    "period": "第5節",
-    "time": "11:20-12:00",
-    "teacher": "劉秋岑",
-    "course": "水溶液的酸鹼性可以改變嗎"
-  },
-  {
-    "date": "2026-07-10",
-    "dateLabel": "7/10",
-    "weekday": "五",
-    "className": "乙班",
-    "periodOrder": 6,
-    "period": "第6節",
-    "time": "13:00-13:40",
-    "teacher": "劉秋岑",
-    "course": "水溶液的酸鹼性可以改變嗎"
-  },
-  {
-    "date": "2026-07-13",
-    "dateLabel": "7/13",
-    "weekday": "一",
-    "className": "甲班",
-    "periodOrder": 1,
-    "period": "第1節",
-    "time": "08:20-09:00",
-    "teacher": "陳賢宗",
-    "course": "物質能溶解的量"
-  },
-  {
-    "date": "2026-07-13",
-    "dateLabel": "7/13",
-    "weekday": "一",
-    "className": "甲班",
-    "periodOrder": 2,
-    "period": "第2節",
-    "time": "09:00-09:40",
-    "teacher": "陳賢宗",
-    "course": "物質能溶解的量"
-  },
-  {
-    "date": "2026-07-13",
-    "dateLabel": "7/13",
-    "weekday": "一",
-    "className": "甲班",
-    "periodOrder": 3,
-    "period": "第3節",
-    "time": "09:40-10:20",
-    "teacher": "陳賢宗",
-    "course": "物質能溶解的量"
-  },
-  {
-    "date": "2026-07-13",
-    "dateLabel": "7/13",
-    "weekday": "一",
-    "className": "乙班",
-    "periodOrder": 4,
-    "period": "第4節",
-    "time": "10:40-11:20",
-    "teacher": "陳賢宗",
-    "course": "溫度改變對物質的體積有何影響"
-  },
-  {
-    "date": "2026-07-13",
-    "dateLabel": "7/13",
-    "weekday": "一",
-    "className": "乙班",
-    "periodOrder": 5,
-    "period": "第5節",
-    "time": "11:20-12:00",
-    "teacher": "陳賢宗",
-    "course": "溫度改變對物質的體積有何影響"
-  },
-  {
-    "date": "2026-07-13",
-    "dateLabel": "7/13",
-    "weekday": "一",
-    "className": "乙班",
-    "periodOrder": 6,
-    "period": "第6節",
-    "time": "13:00-13:40",
-    "teacher": "陳賢宗",
-    "course": "熱是如何傳播"
-  },
-  {
-    "date": "2026-07-14",
-    "dateLabel": "7/14",
-    "weekday": "二",
-    "className": "甲班",
-    "periodOrder": 1,
-    "period": "第1節",
-    "time": "08:20-09:00",
-    "teacher": "劉秋岑",
-    "course": "流動的空氣"
-  },
-  {
-    "date": "2026-07-14",
-    "dateLabel": "7/14",
-    "weekday": "二",
-    "className": "甲班",
-    "periodOrder": 2,
-    "period": "第2節",
-    "time": "09:00-09:40",
-    "teacher": "劉秋岑",
-    "course": "流動的空氣"
-  },
-  {
-    "date": "2026-07-14",
-    "dateLabel": "7/14",
-    "weekday": "二",
-    "className": "甲班",
-    "periodOrder": 3,
-    "period": "第3節",
-    "time": "09:40-10:20",
-    "teacher": "劉秋岑",
-    "course": "流動的空氣"
-  },
-  {
-    "date": "2026-07-14",
-    "dateLabel": "7/14",
-    "weekday": "二",
-    "className": "乙班",
-    "periodOrder": 4,
-    "period": "第4節",
-    "time": "10:40-11:20",
-    "teacher": "劉秋岑",
-    "course": "電磁鐵是什麼"
-  },
-  {
-    "date": "2026-07-14",
-    "dateLabel": "7/14",
-    "weekday": "二",
-    "className": "乙班",
-    "periodOrder": 5,
-    "period": "第5節",
-    "time": "11:20-12:00",
-    "teacher": "劉秋岑",
-    "course": "電磁鐵是什麼"
-  },
-  {
-    "date": "2026-07-14",
-    "dateLabel": "7/14",
-    "weekday": "二",
-    "className": "乙班",
-    "periodOrder": 6,
-    "period": "第6節",
-    "time": "13:00-13:40",
-    "teacher": "劉秋岑",
-    "course": "電磁鐵是什麼"
-  },
-  {
-    "date": "2026-07-15",
-    "dateLabel": "7/15",
-    "weekday": "三",
-    "className": "甲班",
-    "periodOrder": 1,
-    "period": "第1節",
-    "time": "08:20-09:00",
-    "teacher": "陳賢宗",
-    "course": "菜汁變色了"
-  },
-  {
-    "date": "2026-07-15",
-    "dateLabel": "7/15",
-    "weekday": "三",
-    "className": "甲班",
-    "periodOrder": 2,
-    "period": "第2節",
-    "time": "09:00-09:40",
-    "teacher": "陳賢宗",
-    "course": "浮力"
-  },
-  {
-    "date": "2026-07-15",
-    "dateLabel": "7/15",
-    "weekday": "三",
-    "className": "甲班",
-    "periodOrder": 3,
-    "period": "第3節",
-    "time": "09:40-10:20",
-    "teacher": "陳賢宗",
-    "course": "浮力"
-  },
-  {
-    "date": "2026-07-15",
-    "dateLabel": "7/15",
-    "weekday": "三",
-    "className": "乙班",
-    "periodOrder": 4,
-    "period": "第4節",
-    "time": "10:40-11:20",
-    "teacher": "陳賢宗",
-    "course": "如何應用槓桿原理"
-  },
-  {
-    "date": "2026-07-15",
-    "dateLabel": "7/15",
-    "weekday": "三",
-    "className": "乙班",
-    "periodOrder": 5,
-    "period": "第5節",
-    "time": "11:20-12:00",
-    "teacher": "陳賢宗",
-    "course": "輪軸與滑輪如何便利生活"
-  },
-  {
-    "date": "2026-07-15",
-    "dateLabel": "7/15",
-    "weekday": "三",
-    "className": "乙班",
-    "periodOrder": 6,
-    "period": "第6節",
-    "time": "13:00-13:40",
-    "teacher": "陳賢宗",
-    "course": "輪軸與滑輪如何便利生活"
-  },
-  {
-    "date": "2026-07-16",
-    "dateLabel": "7/16",
-    "weekday": "四",
-    "className": "甲班",
-    "periodOrder": 1,
-    "period": "第1節",
-    "time": "08:20-09:00",
-    "teacher": "劉秋岑",
-    "course": "電路的串聯和並聯"
-  },
-  {
-    "date": "2026-07-16",
-    "dateLabel": "7/16",
-    "weekday": "四",
-    "className": "甲班",
-    "periodOrder": 2,
-    "period": "第2節",
-    "time": "09:00-09:40",
-    "teacher": "劉秋岑",
-    "course": "電路的串聯和並聯"
-  },
-  {
-    "date": "2026-07-16",
-    "dateLabel": "7/16",
-    "weekday": "四",
-    "className": "甲班",
-    "periodOrder": 3,
-    "period": "第3節",
-    "time": "09:40-10:20",
-    "teacher": "劉秋岑",
-    "course": "電路的串聯和並聯"
-  },
-  {
-    "date": "2026-07-16",
-    "dateLabel": "7/16",
-    "weekday": "四",
-    "className": "乙班",
-    "periodOrder": 4,
-    "period": "第4節",
-    "time": "10:40-11:20",
-    "teacher": "劉秋岑",
-    "course": "電磁作用對生活有什麼影響"
-  },
-  {
-    "date": "2026-07-16",
-    "dateLabel": "7/16",
-    "weekday": "四",
-    "className": "乙班",
-    "periodOrder": 5,
-    "period": "第5節",
-    "time": "11:20-12:00",
-    "teacher": "劉秋岑",
-    "course": "電磁作用對生活有什麼影響"
-  },
-  {
-    "date": "2026-07-16",
-    "dateLabel": "7/16",
-    "weekday": "四",
-    "className": "乙班",
-    "periodOrder": 6,
-    "period": "第6節",
-    "time": "13:00-13:40",
-    "teacher": "劉秋岑",
-    "course": "電磁作用對生活有什麼影響"
-  },
-  {
-    "date": "2026-07-17",
-    "dateLabel": "7/17",
-    "weekday": "五",
-    "className": "甲班",
-    "periodOrder": 1,
-    "period": "第1節",
-    "time": "08:20-09:00",
-    "teacher": "陳賢宗",
-    "course": "浮力在生活中的應用"
-  },
-  {
-    "date": "2026-07-17",
-    "dateLabel": "7/17",
-    "weekday": "五",
-    "className": "甲班",
-    "periodOrder": 2,
-    "period": "第2節",
-    "time": "09:00-09:40",
-    "teacher": "陳賢宗",
-    "course": "浮力在生活中的應用"
-  },
-  {
-    "date": "2026-07-17",
-    "dateLabel": "7/17",
-    "weekday": "五",
-    "className": "甲班",
-    "periodOrder": 3,
-    "period": "第3節",
-    "time": "09:40-10:20",
-    "teacher": "陳賢宗",
-    "course": "浮力在生活中的應用"
-  },
-  {
-    "date": "2026-07-17",
-    "dateLabel": "7/17",
-    "weekday": "五",
-    "className": "乙班",
-    "periodOrder": 4,
-    "period": "第4節",
-    "time": "10:40-11:20",
-    "teacher": "陳賢宗",
-    "course": "能量如何互相轉換"
-  },
-  {
-    "date": "2026-07-17",
-    "dateLabel": "7/17",
-    "weekday": "五",
-    "className": "乙班",
-    "periodOrder": 5,
-    "period": "第5節",
-    "time": "11:20-12:00",
-    "teacher": "陳賢宗",
-    "course": "能量如何互相轉換"
-  },
-  {
-    "date": "2026-07-17",
-    "dateLabel": "7/17",
-    "weekday": "五",
-    "className": "乙班",
-    "periodOrder": 6,
-    "period": "第6節",
-    "time": "13:00-13:40",
-    "teacher": "陳賢宗",
-    "course": "什麼是天氣變化的主角"
-  }
-];
+      {
+        "date": "2026-07-06",
+        "dateLabel": "7/6",
+        "weekday": "一",
+        "className": "甲班",
+        "periodOrder": 1,
+        "period": "第1節",
+        "time": "08:20-09:00",
+        "teacher": "陳賢宗",
+        "course": "空氣和水的壓縮與傳動"
+      },
+      {
+        "date": "2026-07-06",
+        "dateLabel": "7/6",
+        "weekday": "一",
+        "className": "甲班",
+        "periodOrder": 2,
+        "period": "第2節",
+        "time": "09:00-09:40",
+        "teacher": "陳賢宗",
+        "course": "空氣和水的壓縮與傳動"
+      },
+      {
+        "date": "2026-07-06",
+        "dateLabel": "7/6",
+        "weekday": "一",
+        "className": "甲班",
+        "periodOrder": 3,
+        "period": "第3節",
+        "time": "09:40-10:20",
+        "teacher": "陳賢宗",
+        "course": "空氣和水的壓縮與傳動"
+      },
+      {
+        "date": "2026-07-06",
+        "dateLabel": "7/6",
+        "weekday": "一",
+        "className": "甲班",
+        "periodOrder": 4,
+        "period": "第4節",
+        "time": "10:40-11:20",
+        "teacher": "陳賢宗",
+        "course": "空氣和水的壓縮與傳動"
+      },
+      {
+        "date": "2026-07-06",
+        "dateLabel": "7/6",
+        "weekday": "一",
+        "className": "乙班",
+        "periodOrder": 5,
+        "period": "第5節",
+        "time": "11:20-12:00",
+        "teacher": "陳賢宗",
+        "course": "樂器如何發出不同的聲音"
+      },
+      {
+        "date": "2026-07-06",
+        "dateLabel": "7/6",
+        "weekday": "一",
+        "className": "乙班",
+        "periodOrder": 6,
+        "period": "第6節",
+        "time": "13:00-13:40",
+        "teacher": "陳賢宗",
+        "course": "樂器如何發出不同的聲音"
+      },
+      {
+        "date": "2026-07-06",
+        "dateLabel": "7/6",
+        "weekday": "一",
+        "className": "乙班",
+        "periodOrder": 7,
+        "period": "第7節",
+        "time": "13:40-14:20",
+        "teacher": "陳賢宗",
+        "course": "光有什麼特性與現象"
+      },
+      {
+        "date": "2026-07-06",
+        "dateLabel": "7/6",
+        "weekday": "一",
+        "className": "乙班",
+        "periodOrder": 8,
+        "period": "第8節",
+        "time": "14:20-15:00",
+        "teacher": "陳賢宗",
+        "course": "光有什麼特性與現象"
+      },
+      {
+        "date": "2026-07-07",
+        "dateLabel": "7/7",
+        "weekday": "二",
+        "className": "甲班",
+        "periodOrder": 1,
+        "period": "第1節",
+        "time": "08:20-09:00",
+        "teacher": "劉秋岑",
+        "course": "溫度的改變對物質的影響"
+      },
+      {
+        "date": "2026-07-07",
+        "dateLabel": "7/7",
+        "weekday": "二",
+        "className": "甲班",
+        "periodOrder": 2,
+        "period": "第2節",
+        "time": "09:00-09:40",
+        "teacher": "劉秋岑",
+        "course": "溫度的改變對物質的影響"
+      },
+      {
+        "date": "2026-07-07",
+        "dateLabel": "7/7",
+        "weekday": "二",
+        "className": "甲班",
+        "periodOrder": 3,
+        "period": "第3節",
+        "time": "09:40-10:20",
+        "teacher": "劉秋岑",
+        "course": "溫度的改變對物質的影響"
+      },
+      {
+        "date": "2026-07-07",
+        "dateLabel": "7/7",
+        "weekday": "二",
+        "className": "甲班",
+        "periodOrder": 4,
+        "period": "第4節",
+        "time": "10:40-11:20",
+        "teacher": "劉秋岑",
+        "course": "如何知道力的大小"
+      },
+      {
+        "date": "2026-07-07",
+        "dateLabel": "7/7",
+        "weekday": "二",
+        "className": "乙班",
+        "periodOrder": 5,
+        "period": "第5節",
+        "time": "11:20-12:00",
+        "teacher": "劉秋岑",
+        "course": "如何保持力的平衡"
+      },
+      {
+        "date": "2026-07-07",
+        "dateLabel": "7/7",
+        "weekday": "二",
+        "className": "乙班",
+        "periodOrder": 6,
+        "period": "第6節",
+        "time": "13:00-13:40",
+        "teacher": "劉秋岑",
+        "course": "如何保持力的平衡"
+      },
+      {
+        "date": "2026-07-07",
+        "dateLabel": "7/7",
+        "weekday": "二",
+        "className": "乙班",
+        "periodOrder": 7,
+        "period": "第7節",
+        "time": "13:40-14:20",
+        "teacher": "劉秋岑",
+        "course": "如何保持力的平衡"
+      },
+      {
+        "date": "2026-07-07",
+        "dateLabel": "7/7",
+        "weekday": "二",
+        "className": "乙班",
+        "periodOrder": 8,
+        "period": "第8節",
+        "time": "14:20-15:00",
+        "teacher": "劉秋岑",
+        "course": "如何保持力的平衡"
+      },
+      {
+        "date": "2026-07-08",
+        "dateLabel": "7/8",
+        "weekday": "三",
+        "className": "甲班",
+        "periodOrder": 1,
+        "period": "第1節",
+        "time": "08:20-09:00",
+        "teacher": "陳賢宗",
+        "course": "磁鐵與生活"
+      },
+      {
+        "date": "2026-07-08",
+        "dateLabel": "7/8",
+        "weekday": "三",
+        "className": "甲班",
+        "periodOrder": 2,
+        "period": "第2節",
+        "time": "09:00-09:40",
+        "teacher": "陳賢宗",
+        "course": "磁鐵與生活"
+      },
+      {
+        "date": "2026-07-08",
+        "dateLabel": "7/8",
+        "weekday": "三",
+        "className": "甲班",
+        "periodOrder": 3,
+        "period": "第3節",
+        "time": "09:40-10:20",
+        "teacher": "陳賢宗",
+        "course": "磁鐵與生活"
+      },
+      {
+        "date": "2026-07-08",
+        "dateLabel": "7/8",
+        "weekday": "三",
+        "className": "甲班",
+        "periodOrder": 4,
+        "period": "第4節",
+        "time": "10:40-11:20",
+        "teacher": "陳賢宗",
+        "course": "燃燒的條件與如何滅火"
+      },
+      {
+        "date": "2026-07-08",
+        "dateLabel": "7/8",
+        "weekday": "三",
+        "className": "乙班",
+        "periodOrder": 5,
+        "period": "第5節",
+        "time": "11:20-12:00",
+        "teacher": "陳賢宗",
+        "course": "燃燒的條件與如何滅火"
+      },
+      {
+        "date": "2026-07-08",
+        "dateLabel": "7/8",
+        "weekday": "三",
+        "className": "乙班",
+        "periodOrder": 6,
+        "period": "第6節",
+        "time": "13:00-13:40",
+        "teacher": "陳賢宗",
+        "course": "為何會生鏽與如何防鏽"
+      },
+      {
+        "date": "2026-07-08",
+        "dateLabel": "7/8",
+        "weekday": "三",
+        "className": "乙班",
+        "periodOrder": 7,
+        "period": "第7節",
+        "time": "13:40-14:20",
+        "teacher": "陳賢宗",
+        "course": "為何會生鏽與如何防鏽"
+      },
+      {
+        "date": "2026-07-08",
+        "dateLabel": "7/8",
+        "weekday": "三",
+        "className": "乙班",
+        "periodOrder": 8,
+        "period": "第8節",
+        "time": "14:20-15:00",
+        "teacher": "陳賢宗",
+        "course": "為何會生鏽與如何防鏽"
+      },
+      {
+        "date": "2026-07-09",
+        "dateLabel": "7/9",
+        "weekday": "四",
+        "className": "甲班",
+        "periodOrder": 1,
+        "period": "第1節",
+        "time": "08:20-09:00",
+        "teacher": "劉秋岑",
+        "course": "力的表示方法"
+      },
+      {
+        "date": "2026-07-09",
+        "dateLabel": "7/9",
+        "weekday": "四",
+        "className": "甲班",
+        "periodOrder": 2,
+        "period": "第2節",
+        "time": "09:00-09:40",
+        "teacher": "劉秋岑",
+        "course": "力的表示方法"
+      },
+      {
+        "date": "2026-07-09",
+        "dateLabel": "7/9",
+        "weekday": "四",
+        "className": "甲班",
+        "periodOrder": 3,
+        "period": "第3節",
+        "time": "09:40-10:20",
+        "teacher": "劉秋岑",
+        "course": "力的表示方法"
+      },
+      {
+        "date": "2026-07-09",
+        "dateLabel": "7/9",
+        "weekday": "四",
+        "className": "甲班",
+        "periodOrder": 4,
+        "period": "第4節",
+        "time": "10:40-11:20",
+        "teacher": "劉秋岑",
+        "course": "如何知道力的大小"
+      },
+      {
+        "date": "2026-07-09",
+        "dateLabel": "7/9",
+        "weekday": "四",
+        "className": "乙班",
+        "periodOrder": 5,
+        "period": "第5節",
+        "time": "11:20-12:00",
+        "teacher": "劉秋岑",
+        "course": "如何保持力的平衡"
+      },
+      {
+        "date": "2026-07-09",
+        "dateLabel": "7/9",
+        "weekday": "四",
+        "className": "乙班",
+        "periodOrder": 6,
+        "period": "第6節",
+        "time": "13:00-13:40",
+        "teacher": "劉秋岑",
+        "course": "如何保持力的平衡"
+      },
+      {
+        "date": "2026-07-09",
+        "dateLabel": "7/9",
+        "weekday": "四",
+        "className": "乙班",
+        "periodOrder": 7,
+        "period": "第7節",
+        "time": "13:40-14:20",
+        "teacher": "劉秋岑",
+        "course": "如何保持力的平衡"
+      },
+      {
+        "date": "2026-07-09",
+        "dateLabel": "7/9",
+        "weekday": "四",
+        "className": "乙班",
+        "periodOrder": 8,
+        "period": "第8節",
+        "time": "14:20-15:00",
+        "teacher": "劉秋岑",
+        "course": "如何保持力的平衡"
+      },
+      {
+        "date": "2026-07-10",
+        "dateLabel": "7/10",
+        "weekday": "五",
+        "className": "甲班",
+        "periodOrder": 1,
+        "period": "第1節",
+        "time": "08:20-09:00",
+        "teacher": "陳賢宗",
+        "course": "讓燈泡亮的方式"
+      },
+      {
+        "date": "2026-07-10",
+        "dateLabel": "7/10",
+        "weekday": "五",
+        "className": "甲班",
+        "periodOrder": 2,
+        "period": "第2節",
+        "time": "09:00-09:40",
+        "teacher": "陳賢宗",
+        "course": "讓燈泡亮的方式"
+      },
+      {
+        "date": "2026-07-10",
+        "dateLabel": "7/10",
+        "weekday": "五",
+        "className": "甲班",
+        "periodOrder": 3,
+        "period": "第3節",
+        "time": "09:40-10:20",
+        "teacher": "陳賢宗",
+        "course": "讓燈泡亮的方式"
+      },
+      {
+        "date": "2026-07-10",
+        "dateLabel": "7/10",
+        "weekday": "五",
+        "className": "甲班",
+        "periodOrder": 4,
+        "period": "第4節",
+        "time": "10:40-11:20",
+        "teacher": "陳賢宗",
+        "course": "水溶液可以導電嗎"
+      },
+      {
+        "date": "2026-07-10",
+        "dateLabel": "7/10",
+        "weekday": "五",
+        "className": "乙班",
+        "periodOrder": 5,
+        "period": "第5節",
+        "time": "11:20-12:00",
+        "teacher": "陳賢宗",
+        "course": "水溶液的酸鹼性可以改變嗎"
+      },
+      {
+        "date": "2026-07-10",
+        "dateLabel": "7/10",
+        "weekday": "五",
+        "className": "乙班",
+        "periodOrder": 6,
+        "period": "第6節",
+        "time": "13:00-13:40",
+        "teacher": "陳賢宗",
+        "course": "水溶液的酸鹼性可以改變嗎"
+      },
+      {
+        "date": "2026-07-10",
+        "dateLabel": "7/10",
+        "weekday": "五",
+        "className": "乙班",
+        "periodOrder": 7,
+        "period": "第7節",
+        "time": "13:40-14:20",
+        "teacher": "陳賢宗",
+        "course": "水溶液的酸鹼性可以改變嗎"
+      },
+      {
+        "date": "2026-07-10",
+        "dateLabel": "7/10",
+        "weekday": "五",
+        "className": "乙班",
+        "periodOrder": 8,
+        "period": "第8節",
+        "time": "14:20-15:00",
+        "teacher": "陳賢宗",
+        "course": "水溶液的酸鹼性可以改變嗎"
+      },
+      {
+        "date": "2026-07-13",
+        "dateLabel": "7/13",
+        "weekday": "一",
+        "className": "甲班",
+        "periodOrder": 1,
+        "period": "第1節",
+        "time": "08:20-09:00",
+        "teacher": "陳賢宗",
+        "course": "物質能溶解的量"
+      },
+      {
+        "date": "2026-07-13",
+        "dateLabel": "7/13",
+        "weekday": "一",
+        "className": "甲班",
+        "periodOrder": 2,
+        "period": "第2節",
+        "time": "09:00-09:40",
+        "teacher": "陳賢宗",
+        "course": "物質能溶解的量"
+      },
+      {
+        "date": "2026-07-13",
+        "dateLabel": "7/13",
+        "weekday": "一",
+        "className": "甲班",
+        "periodOrder": 3,
+        "period": "第3節",
+        "time": "09:40-10:20",
+        "teacher": "陳賢宗",
+        "course": "物質能溶解的量"
+      },
+      {
+        "date": "2026-07-13",
+        "dateLabel": "7/13",
+        "weekday": "一",
+        "className": "甲班",
+        "periodOrder": 4,
+        "period": "第4節",
+        "time": "10:40-11:20",
+        "teacher": "陳賢宗",
+        "course": "溫度改變對物質的體積有何影響"
+      },
+      {
+        "date": "2026-07-13",
+        "dateLabel": "7/13",
+        "weekday": "一",
+        "className": "乙班",
+        "periodOrder": 5,
+        "period": "第5節",
+        "time": "11:20-12:00",
+        "teacher": "陳賢宗",
+        "course": "溫度改變對物質的體積有何影響"
+      },
+      {
+        "date": "2026-07-13",
+        "dateLabel": "7/13",
+        "weekday": "一",
+        "className": "乙班",
+        "periodOrder": 6,
+        "period": "第6節",
+        "time": "13:00-13:40",
+        "teacher": "陳賢宗",
+        "course": "熱是如何傳播"
+      },
+      {
+        "date": "2026-07-13",
+        "dateLabel": "7/13",
+        "weekday": "一",
+        "className": "乙班",
+        "periodOrder": 7,
+        "period": "第7節",
+        "time": "13:40-14:20",
+        "teacher": "陳賢宗",
+        "course": "熱是如何傳播"
+      },
+      {
+        "date": "2026-07-13",
+        "dateLabel": "7/13",
+        "weekday": "一",
+        "className": "乙班",
+        "periodOrder": 8,
+        "period": "第8節",
+        "time": "14:20-15:00",
+        "teacher": "陳賢宗",
+        "course": "熱是如何傳播"
+      },
+      {
+        "date": "2026-07-14",
+        "dateLabel": "7/14",
+        "weekday": "二",
+        "className": "甲班",
+        "periodOrder": 1,
+        "period": "第1節",
+        "time": "08:20-09:00",
+        "teacher": "劉秋岑",
+        "course": "流動的空氣"
+      },
+      {
+        "date": "2026-07-14",
+        "dateLabel": "7/14",
+        "weekday": "二",
+        "className": "甲班",
+        "periodOrder": 2,
+        "period": "第2節",
+        "time": "09:00-09:40",
+        "teacher": "劉秋岑",
+        "course": "流動的空氣"
+      },
+      {
+        "date": "2026-07-14",
+        "dateLabel": "7/14",
+        "weekday": "二",
+        "className": "甲班",
+        "periodOrder": 3,
+        "period": "第3節",
+        "time": "09:40-10:20",
+        "teacher": "劉秋岑",
+        "course": "流動的空氣"
+      },
+      {
+        "date": "2026-07-14",
+        "dateLabel": "7/14",
+        "weekday": "二",
+        "className": "甲班",
+        "periodOrder": 4,
+        "period": "第4節",
+        "time": "10:40-11:20",
+        "teacher": "劉秋岑",
+        "course": "電磁鐵是什麼"
+      },
+      {
+        "date": "2026-07-14",
+        "dateLabel": "7/14",
+        "weekday": "二",
+        "className": "乙班",
+        "periodOrder": 5,
+        "period": "第5節",
+        "time": "11:20-12:00",
+        "teacher": "劉秋岑",
+        "course": "電磁鐵是什麼"
+      },
+      {
+        "date": "2026-07-14",
+        "dateLabel": "7/14",
+        "weekday": "二",
+        "className": "乙班",
+        "periodOrder": 6,
+        "period": "第6節",
+        "time": "13:00-13:40",
+        "teacher": "劉秋岑",
+        "course": "電磁鐵是什麼"
+      },
+      {
+        "date": "2026-07-14",
+        "dateLabel": "7/14",
+        "weekday": "二",
+        "className": "乙班",
+        "periodOrder": 7,
+        "period": "第7節",
+        "time": "13:40-14:20",
+        "teacher": "劉秋岑",
+        "course": "電磁鐵是什麼"
+      },
+      {
+        "date": "2026-07-14",
+        "dateLabel": "7/14",
+        "weekday": "二",
+        "className": "乙班",
+        "periodOrder": 8,
+        "period": "第8節",
+        "time": "14:20-15:00",
+        "teacher": "劉秋岑",
+        "course": "電磁鐵是什麼"
+      },
+      {
+        "date": "2026-07-15",
+        "dateLabel": "7/15",
+        "weekday": "三",
+        "className": "甲班",
+        "periodOrder": 1,
+        "period": "第1節",
+        "time": "08:20-09:00",
+        "teacher": "陳賢宗",
+        "course": "菜汁變色了"
+      },
+      {
+        "date": "2026-07-15",
+        "dateLabel": "7/15",
+        "weekday": "三",
+        "className": "甲班",
+        "periodOrder": 2,
+        "period": "第2節",
+        "time": "09:00-09:40",
+        "teacher": "陳賢宗",
+        "course": "浮力"
+      },
+      {
+        "date": "2026-07-15",
+        "dateLabel": "7/15",
+        "weekday": "三",
+        "className": "甲班",
+        "periodOrder": 3,
+        "period": "第3節",
+        "time": "09:40-10:20",
+        "teacher": "陳賢宗",
+        "course": "浮力"
+      },
+      {
+        "date": "2026-07-15",
+        "dateLabel": "7/15",
+        "weekday": "三",
+        "className": "甲班",
+        "periodOrder": 4,
+        "period": "第4節",
+        "time": "10:40-11:20",
+        "teacher": "陳賢宗",
+        "course": "如何應用槓桿原理"
+      },
+      {
+        "date": "2026-07-15",
+        "dateLabel": "7/15",
+        "weekday": "三",
+        "className": "乙班",
+        "periodOrder": 5,
+        "period": "第5節",
+        "time": "11:20-12:00",
+        "teacher": "陳賢宗",
+        "course": "輪軸與滑輪如何便利生活"
+      },
+      {
+        "date": "2026-07-15",
+        "dateLabel": "7/15",
+        "weekday": "三",
+        "className": "乙班",
+        "periodOrder": 6,
+        "period": "第6節",
+        "time": "13:00-13:40",
+        "teacher": "陳賢宗",
+        "course": "輪軸與滑輪如何便利生活"
+      },
+      {
+        "date": "2026-07-15",
+        "dateLabel": "7/15",
+        "weekday": "三",
+        "className": "乙班",
+        "periodOrder": 7,
+        "period": "第7節",
+        "time": "13:40-14:20",
+        "teacher": "陳賢宗",
+        "course": "輪軸與滑輪如何便利生活"
+      },
+      {
+        "date": "2026-07-15",
+        "dateLabel": "7/15",
+        "weekday": "三",
+        "className": "乙班",
+        "periodOrder": 8,
+        "period": "第8節",
+        "time": "14:20-15:00",
+        "teacher": "陳賢宗",
+        "course": "輪軸與滑輪如何便利生活"
+      },
+      {
+        "date": "2026-07-16",
+        "dateLabel": "7/16",
+        "weekday": "四",
+        "className": "甲班",
+        "periodOrder": 1,
+        "period": "第1節",
+        "time": "08:20-09:00",
+        "teacher": "劉秋岑",
+        "course": "電路的串聯和並聯"
+      },
+      {
+        "date": "2026-07-16",
+        "dateLabel": "7/16",
+        "weekday": "四",
+        "className": "甲班",
+        "periodOrder": 2,
+        "period": "第2節",
+        "time": "09:00-09:40",
+        "teacher": "劉秋岑",
+        "course": "電路的串聯和並聯"
+      },
+      {
+        "date": "2026-07-16",
+        "dateLabel": "7/16",
+        "weekday": "四",
+        "className": "甲班",
+        "periodOrder": 3,
+        "period": "第3節",
+        "time": "09:40-10:20",
+        "teacher": "劉秋岑",
+        "course": "電路的串聯和並聯"
+      },
+      {
+        "date": "2026-07-16",
+        "dateLabel": "7/16",
+        "weekday": "四",
+        "className": "甲班",
+        "periodOrder": 4,
+        "period": "第4節",
+        "time": "10:40-11:20",
+        "teacher": "劉秋岑",
+        "course": "電磁作用對生活有什麼影響"
+      },
+      {
+        "date": "2026-07-16",
+        "dateLabel": "7/16",
+        "weekday": "四",
+        "className": "乙班",
+        "periodOrder": 5,
+        "period": "第5節",
+        "time": "11:20-12:00",
+        "teacher": "劉秋岑",
+        "course": "電磁作用對生活有什麼影響"
+      },
+      {
+        "date": "2026-07-16",
+        "dateLabel": "7/16",
+        "weekday": "四",
+        "className": "乙班",
+        "periodOrder": 6,
+        "period": "第6節",
+        "time": "13:00-13:40",
+        "teacher": "劉秋岑",
+        "course": "電磁作用對生活有什麼影響"
+      },
+      {
+        "date": "2026-07-16",
+        "dateLabel": "7/16",
+        "weekday": "四",
+        "className": "乙班",
+        "periodOrder": 7,
+        "period": "第7節",
+        "time": "13:40-14:20",
+        "teacher": "劉秋岑",
+        "course": "電磁作用對生活有什麼影響"
+      },
+      {
+        "date": "2026-07-16",
+        "dateLabel": "7/16",
+        "weekday": "四",
+        "className": "乙班",
+        "periodOrder": 8,
+        "period": "第8節",
+        "time": "14:20-15:00",
+        "teacher": "劉秋岑",
+        "course": "電磁作用對生活有什麼影響"
+      },
+      {
+        "date": "2026-07-17",
+        "dateLabel": "7/17",
+        "weekday": "五",
+        "className": "甲班",
+        "periodOrder": 1,
+        "period": "第1節",
+        "time": "08:20-09:00",
+        "teacher": "陳賢宗",
+        "course": "浮力在生活中的應用"
+      },
+      {
+        "date": "2026-07-17",
+        "dateLabel": "7/17",
+        "weekday": "五",
+        "className": "甲班",
+        "periodOrder": 2,
+        "period": "第2節",
+        "time": "09:00-09:40",
+        "teacher": "陳賢宗",
+        "course": "浮力在生活中的應用"
+      },
+      {
+        "date": "2026-07-17",
+        "dateLabel": "7/17",
+        "weekday": "五",
+        "className": "甲班",
+        "periodOrder": 3,
+        "period": "第3節",
+        "time": "09:40-10:20",
+        "teacher": "陳賢宗",
+        "course": "浮力在生活中的應用"
+      },
+      {
+        "date": "2026-07-17",
+        "dateLabel": "7/17",
+        "weekday": "五",
+        "className": "甲班",
+        "periodOrder": 4,
+        "period": "第4節",
+        "time": "10:40-11:20",
+        "teacher": "陳賢宗",
+        "course": "能量如何互相轉換"
+      },
+      {
+        "date": "2026-07-17",
+        "dateLabel": "7/17",
+        "weekday": "五",
+        "className": "乙班",
+        "periodOrder": 5,
+        "period": "第5節",
+        "time": "11:20-12:00",
+        "teacher": "陳賢宗",
+        "course": "能量如何互相轉換"
+      },
+      {
+        "date": "2026-07-17",
+        "dateLabel": "7/17",
+        "weekday": "五",
+        "className": "乙班",
+        "periodOrder": 6,
+        "period": "第6節",
+        "time": "13:00-13:40",
+        "teacher": "陳賢宗",
+        "course": "什麼是天氣變化的主角"
+      },
+      {
+        "date": "2026-07-17",
+        "dateLabel": "7/17",
+        "weekday": "五",
+        "className": "乙班",
+        "periodOrder": 7,
+        "period": "第7節",
+        "time": "13:40-14:20",
+        "teacher": "陳賢宗",
+        "course": "什麼是天氣變化的主角"
+      },
+      {
+        "date": "2026-07-17",
+        "dateLabel": "7/17",
+        "weekday": "五",
+        "className": "乙班",
+        "periodOrder": 8,
+        "period": "第8節",
+        "time": "14:20-15:00",
+        "teacher": "陳賢宗",
+        "course": "什麼是天氣變化的主角"
+      }
+    ];
     const teacherFilter = document.getElementById('teacherFilter');
     const classFilter = document.getElementById('classFilter');
     const searchInput = document.getElementById('searchInput');
