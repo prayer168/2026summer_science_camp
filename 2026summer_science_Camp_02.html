@@ -96,8 +96,28 @@
     .course { font-weight: 800; }
     footer { color: var(--muted); font-size: 13px; padding: 24px 0 40px; }
     .empty { padding: 36px; text-align: center; color: var(--muted); font-weight: 700; }
+
+    .materials-section { margin-top: 28px; }
+    .materials-intro { color: var(--muted); margin: 0 0 16px; }
+    .materials-day { margin-bottom: 18px; }
+    .materials-day-title {
+      margin: 0; padding: 14px 18px; background: linear-gradient(90deg, var(--brand), #60a5fa);
+      color: #fff; font-size: 20px; border-radius: 20px 20px 0 0;
+    }
+    .materials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding: 16px; }
+    .material-card { border: 1px solid var(--line); border-radius: 18px; background: #fff; overflow: hidden; }
+    .material-card h4 { margin: 0; padding: 12px 14px; background: #f8fafc; font-size: 17px; }
+    .material-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .material-list { padding: 12px 14px; }
+    .material-list:first-child { border-right: 1px solid var(--line); }
+    .material-list h5 { margin: 0 0 8px; font-size: 14px; color: #334155; }
+    .material-list ul { margin: 0; padding-left: 1.25rem; }
+    .material-list li { margin: 4px 0; }
+    .materials-note { background: var(--soft-yellow); border: 1px solid #fde68a; border-radius: 16px; padding: 12px 14px; margin: 0 16px 16px; }
     @media (max-width: 780px) {
       .hero, .teacher-card-grid { grid-template-columns: 1fr; }
+      .materials-grid, .material-body { grid-template-columns: 1fr; }
+      .material-list:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
       .summary-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-card { padding: 22px; }
       input { min-width: 180px; }
@@ -187,6 +207,652 @@
         </table>
       </div>
       <div id="emptyMsg" class="empty" hidden>沒有符合條件的課程。</div>
+    </section>
+
+    <section class="table-card materials-section" id="materials-list">
+      <div class="table-head">
+        <h2>活動工具、設備及材料清單</h2>
+        <div class="result-count">依日期與活動整理</div>
+      </div>
+      <div class="materials-note">建議以每班 6 組、每組 4–5 人準備；耗材可依實際學生人數與分組數量增減。涉及火焰、熱水、酸鹼與電路活動時，請由教師示範或全程督導，並準備護目鏡、托盤、抹布與安全處置用品。</div>
+      <article class="materials-day">
+        <h3 class="materials-day-title">7/6（星期一）</h3>
+        <div class="materials-grid">
+          <section class="material-card">
+            <h4>空氣水力大挑戰</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>打氣筒或針筒、透明水管、漏斗</li>
+                  <li>量杯、盆或水槽、滴管</li>
+                  <li>護目鏡、抹布、托盤</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>清水、食用色素</li>
+                  <li>氣球、吸管、橡皮筋</li>
+                  <li>寶特瓶、塑膠杯、膠帶</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>聲音魔法實驗室</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>音叉或金屬湯匙、橡皮槌</li>
+                  <li>手機分貝計App或簡易收音設備</li>
+                  <li>紙杯電話示範組、剪刀</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>紙杯、棉線或釣魚線</li>
+                  <li>橡皮筋、保鮮膜、豆子或米粒</li>
+                  <li>紙盒、吸管、膠帶</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article class="materials-day">
+        <h3 class="materials-day-title">7/7（星期二）</h3>
+        <div class="materials-grid">
+          <section class="material-card">
+            <h4>溫度魔法變變變</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>溫度計或電子溫度計</li>
+                  <li>燒杯/透明杯、計時器</li>
+                  <li>熱水瓶或保溫瓶、隔熱手套</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>冷水、溫水、冰塊</li>
+                  <li>黑色紙與白色紙</li>
+                  <li>鋁箔紙、塑膠袋、記錄表</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>力量偵探大挑戰</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>彈簧秤、長尺</li>
+                  <li>小車或玩具車、滑坡板</li>
+                  <li>砝碼或可替代重物</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>橡皮筋、棉線</li>
+                  <li>紙杯、迴紋針</li>
+                  <li>貼紙或標籤紙</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>平衡高手闖關</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>天平或自製平衡尺</li>
+                  <li>積木、砝碼、長尺</li>
+                  <li>支點材料：鉛筆、圓木棒或三角木</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>硬紙板、竹筷、黏土</li>
+                  <li>迴紋針、紙杯</li>
+                  <li>小物件：橡皮擦、硬幣等</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article class="materials-day">
+        <h3 class="materials-day-title">7/8（星期三）</h3>
+        <div class="materials-grid">
+          <section class="material-card">
+            <h4>磁力探險隊</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>長條磁鐵、馬蹄形磁鐵</li>
+                  <li>指南針、鐵粉觀察盒或密封袋</li>
+                  <li>托盤</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>迴紋針、鐵釘、硬幣等測試物</li>
+                  <li>紙張、透明塑膠片</li>
+                  <li>標籤貼紙</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>火焰形成三密碼</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>酒精燈或蠟燭、點火器</li>
+                  <li>耐熱墊、金屬夾</li>
+                  <li>護目鏡、滅火毯或砂桶</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>蠟燭、火柴或點火棒</li>
+                  <li>玻璃杯/廣口瓶</li>
+                  <li>小蘇打、醋（示範用）</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>滅火英雄任務</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>小型滅火器示範品或圖片</li>
+                  <li>金屬盤、夾子</li>
+                  <li>護目鏡、濕抹布、水桶</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>蠟燭、玻璃杯</li>
+                  <li>小蘇打、醋</li>
+                  <li>紙杯、砂土或濕布</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>鐵鏽怪獸防衛戰</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>透明杯或試管架</li>
+                  <li>放大鏡、滴管</li>
+                  <li>標籤紙、觀察紀錄表</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>鐵釘、鋼絲絨</li>
+                  <li>清水、鹽水、食用油</li>
+                  <li>乾燥劑或密封袋</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article class="materials-day">
+        <h3 class="materials-day-title">7/9（星期四）</h3>
+        <div class="materials-grid">
+          <section class="material-card">
+            <h4>力量箭頭挑戰</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>白板或投影設備</li>
+                  <li>箭頭卡、尺、彈簧秤</li>
+                  <li>小車/積木作為受力物</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>便利貼、色筆</li>
+                  <li>棉線、膠帶</li>
+                  <li>任務卡與紀錄單</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>力量偵探大挑戰</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>彈簧秤、長尺</li>
+                  <li>小車或玩具車、滑坡板</li>
+                  <li>砝碼或可替代重物</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>橡皮筋、棉線</li>
+                  <li>紙杯、迴紋針</li>
+                  <li>貼紙或標籤紙</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>平衡高手闖關</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>天平或自製平衡尺</li>
+                  <li>積木、砝碼、長尺</li>
+                  <li>支點材料：鉛筆、圓木棒或三角木</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>硬紙板、竹筷、黏土</li>
+                  <li>迴紋針、紙杯</li>
+                  <li>小物件：橡皮擦、硬幣等</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article class="materials-day">
+        <h3 class="materials-day-title">7/10（星期五）</h3>
+        <div class="materials-grid">
+          <section class="material-card">
+            <h4>點亮燈泡任務</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>電池座、燈泡座、小燈泡或LED</li>
+                  <li>鱷魚夾導線、開關</li>
+                  <li>三用電表（教師示範）</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>電池、鋁箔紙</li>
+                  <li>銅線或導線</li>
+                  <li>絕緣膠帶、任務卡</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>導電水溶液偵探</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>低電壓導電測試器</li>
+                  <li>透明杯、滴管、攪拌棒</li>
+                  <li>護目鏡、托盤</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>清水、鹽水、糖水</li>
+                  <li>小蘇打水、醋水</li>
+                  <li>標籤紙、紀錄表</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>酸鹼變身實驗室</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>滴管、透明杯或試管</li>
+                  <li>pH試紙或紫甘藍汁</li>
+                  <li>護目鏡、手套、托盤</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>紫甘藍汁、醋</li>
+                  <li>小蘇打水、肥皂水</li>
+                  <li>檸檬汁、清水</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>酸鹼偵測任務</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>pH試紙或廣用試紙</li>
+                  <li>滴管、透明杯、色卡</li>
+                  <li>護目鏡、托盤</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>生活液體樣本：醋、茶、肥皂水等</li>
+                  <li>清水、標籤紙</li>
+                  <li>紀錄單</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article class="materials-day">
+        <h3 class="materials-day-title">7/13（星期一）</h3>
+        <div class="materials-grid">
+          <section class="material-card">
+            <h4>廚房科學魔法秀</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>量匙、量杯、透明杯</li>
+                  <li>托盤、攪拌棒</li>
+                  <li>護目鏡、圍裙</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>小蘇打、醋</li>
+                  <li>食用色素、洗碗精</li>
+                  <li>玉米粉、水、夾鏈袋</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>熱能接力賽</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>不同材質湯匙：金屬/塑膠/木頭</li>
+                  <li>燒杯、溫度計、計時器</li>
+                  <li>熱水瓶、隔熱手套</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>熱水、奶油或凡士林</li>
+                  <li>小豆子或珠子</li>
+                  <li>冰塊、紀錄表</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>熱流旋風探險</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>透明耐熱容器</li>
+                  <li>滴管、手電筒</li>
+                  <li>溫度計、護目鏡</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>熱水、冷水</li>
+                  <li>食用色素</li>
+                  <li>冰塊、透明塑膠片</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>看不見的熱光線</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>紅外線溫度計或溫度感測器</li>
+                  <li>檯燈或鹵素燈</li>
+                  <li>黑白色紙板、計時器</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>黑紙、白紙、鋁箔紙</li>
+                  <li>透明保鮮膜</li>
+                  <li>紀錄表</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article class="materials-day">
+        <h3 class="materials-day-title">7/14（星期二）</h3>
+        <div class="materials-grid">
+          <section class="material-card">
+            <h4>空氣流動探險隊</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>電風扇或手持風扇</li>
+                  <li>風向袋或紙帶</li>
+                  <li>吸管、吹風機（教師示範）</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>紙張、紙杯、吸管</li>
+                  <li>氣球、膠帶</li>
+                  <li>輕質球或乒乓球</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>電磁鐵超能力工坊</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>電池座、鱷魚夾導線</li>
+                  <li>開關、砂紙、剪線鉗</li>
+                  <li>三用電表（教師示範）</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>漆包線、鐵釘</li>
+                  <li>電池、迴紋針</li>
+                  <li>絕緣膠帶</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article class="materials-day">
+        <h3 class="materials-day-title">7/15（星期三）</h3>
+        <div class="materials-grid">
+          <section class="material-card">
+            <h4>浮力船長挑戰</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>大水盆、量杯</li>
+                  <li>電子秤或彈簧秤</li>
+                  <li>毛巾、托盤</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>鋁箔紙、黏土</li>
+                  <li>塑膠積木或砝碼</li>
+                  <li>吸管、膠帶</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>槓桿省力大挑戰</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>長尺或木條</li>
+                  <li>支點：圓柱木棒/鉛筆/三角木</li>
+                  <li>砝碼、彈簧秤</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>紙杯、棉線</li>
+                  <li>橡皮擦或小重物</li>
+                  <li>貼紙、紀錄表</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article class="materials-day">
+        <h3 class="materials-day-title">7/16（星期四）</h3>
+        <div class="materials-grid">
+          <section class="material-card">
+            <h4>電路闖關王</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>電池座、燈泡座、LED</li>
+                  <li>鱷魚夾導線、開關</li>
+                  <li>三用電表（教師示範）</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>電池、鋁箔紙</li>
+                  <li>導體/絕緣體測試物</li>
+                  <li>任務卡、絕緣膠帶</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>生活中的電磁魔法</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>指南針、小馬達或蜂鳴器</li>
+                  <li>線圈示範組、電池座</li>
+                  <li>投影片或生活電器圖片</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>漆包線、鐵釘</li>
+                  <li>迴紋針、磁鐵</li>
+                  <li>電池、膠帶</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article class="materials-day">
+        <h3 class="materials-day-title">7/17（星期五）</h3>
+        <div class="materials-grid">
+          <section class="material-card">
+            <h4>摩擦力生活任務</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>斜坡板、彈簧秤</li>
+                  <li>小車或木塊、長尺</li>
+                  <li>不同表面材料固定板</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>砂紙、布、塑膠片</li>
+                  <li>橡皮筋、膠帶</li>
+                  <li>砝碼或小重物、紀錄表</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="material-card">
+            <h4>天氣偵探觀察站</h4>
+            <div class="material-body">
+              <div class="material-list">
+                <h5>工具與設備</h5>
+                <ul>
+                  <li>溫度計、濕度計、氣壓計（可選）</li>
+                  <li>風向袋、雨量筒</li>
+                  <li>平板/電腦查詢氣象資料</li>
+                </ul>
+              </div>
+              <div class="material-list">
+                <h5>材料與耗材</h5>
+                <ul>
+                  <li>雲量觀察圖卡</li>
+                  <li>寶特瓶雨量筒材料</li>
+                  <li>紀錄表、色筆</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
     </section>
   </main>
 
