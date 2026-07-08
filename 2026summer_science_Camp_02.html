@@ -63,6 +63,11 @@
       color: #fff; background: var(--brand); cursor: pointer; box-shadow: 0 8px 18px rgba(37, 99, 235, .22);
     }
     button.secondary { background: #475569; box-shadow: none; }
+    .table-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+    .print-action {
+      border-radius: 12px; padding: 8px 12px; font-size: 14px; background: #0f172a;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, .16);
+    }
     .panel { padding: 18px; margin-bottom: 22px; }
     .mini-title { margin: 0 0 12px; font-size: 18px; }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -133,7 +138,14 @@
     }
     @media print {
       body { background: #fff; }
-      .toolbar, button { display: none !important; }
+      .toolbar, button, .print-action { display: none !important; }
+      body.section-printing header,
+      body.section-printing footer,
+      body.section-printing .toolbar,
+      body.section-printing .panel,
+      body.section-printing main > :not(.print-target) { display: none !important; }
+      body.section-printing main { width: 100%; margin: 0; }
+      body.section-printing .print-target { display: block !important; margin: 0; }
       .hero, .teacher-card-grid { grid-template-columns: 1fr 1fr; }
       .hero-card, .panel, .table-card { box-shadow: none; border: 1px solid #999; }
       table { min-width: 0; font-size: 12px; }
@@ -200,10 +212,13 @@
       <button onclick="window.print()">列印</button>
     </section>
 
-    <section class="table-card">
+    <section class="table-card" id="kouhu-schedule">
       <div class="table-head">
         <h2>授課明細</h2>
-        <div class="result-count" id="resultCount">共 60 筆</div>
+        <div class="table-actions">
+          <div class="result-count" id="resultCount">共 60 筆</div>
+          <button class="print-action" type="button" data-print-target="kouhu-schedule">列印 / PDF</button>
+        </div>
       </div>
       <div class="table-wrap">
         <table>
@@ -222,7 +237,10 @@
     <section class="table-card erxi-section" id="erxi-schedule">
       <div class="table-head">
         <h2>二溪國小夏日樂學課程</h2>
-        <div class="result-count">7/20-7/24，共 20 筆</div>
+        <div class="table-actions">
+          <div class="result-count">7/20-7/24，共 20 筆</div>
+          <button class="print-action" type="button" data-print-target="erxi-schedule">列印 / PDF</button>
+        </div>
       </div>
       <div class="table-wrap">
         <table>
@@ -261,7 +279,10 @@
     <section class="table-card jinhu-section" id="jinhu-schedule">
       <div class="table-head">
         <h2>錦湖國小夏日樂學課程</h2>
-        <div class="result-count">7/27-7/31，共 20 筆</div>
+        <div class="table-actions">
+          <div class="result-count">7/27-7/31，共 20 筆</div>
+          <button class="print-action" type="button" data-print-target="jinhu-schedule">列印 / PDF</button>
+        </div>
       </div>
       <div class="table-wrap">
         <table>
@@ -301,7 +322,10 @@
     <section class="table-card xinshan-section" id="xinshan-schedule">
       <div class="table-head">
         <h2>新山國小夏日樂學營</h2>
-        <div class="result-count">8/3-8/7，共 20 筆</div>
+        <div class="table-actions">
+          <div class="result-count">8/3-8/7，共 20 筆</div>
+          <button class="print-action" type="button" data-print-target="xinshan-schedule">列印 / PDF</button>
+        </div>
       </div>
       <div class="table-wrap">
         <table>
@@ -345,7 +369,10 @@
     <section class="table-card materials-section" id="materials-list">
       <div class="table-head">
         <h2>活動工具、設備及材料清單</h2>
-        <div class="result-count">依日期與活動整理</div>
+        <div class="table-actions">
+          <div class="result-count">依日期與活動整理</div>
+          <button class="print-action" type="button" data-print-target="materials-list">列印 / PDF</button>
+        </div>
       </div>
       <div class="materials-note">建議以每班 6 組、每組 4–5 人準備；耗材可依實際學生人數與分組數量增減。涉及火焰、熱水、酸鹼與電路活動時，請由教師示範或全程督導，並準備護目鏡、托盤、抹布與安全處置用品。</div>
       <article class="materials-day">
@@ -990,7 +1017,10 @@
     <section class="table-card erxi-materials-section" id="erxi-materials-list">
       <div class="table-head">
         <h2>二溪國小活動工具、設備及材料清單</h2>
-        <div class="result-count">依 7/20-7/24 活動整理</div>
+        <div class="table-actions">
+          <div class="result-count">依 7/20-7/24 活動整理</div>
+          <button class="print-action" type="button" data-print-target="erxi-materials-list">列印 / PDF</button>
+        </div>
       </div>
       <div class="materials-note">以下依二溪國小課程規劃中的「教學材料費」整理；共用工具可依班級人數與分組數調整。進行昆蟲觀察、標本製作、鑽木取火與淨水活動時，請由教師示範並全程督導。</div>
       <article class="materials-day">
@@ -1237,7 +1267,10 @@
     <section class="table-card jinhu-materials-section" id="jinhu-materials-list">
       <div class="table-head">
         <h2>錦湖國小活動工具、設備及材料清單</h2>
-        <div class="result-count">依 7/27-7/31 活動整理</div>
+        <div class="table-actions">
+          <div class="result-count">依 7/27-7/31 活動整理</div>
+          <button class="print-action" type="button" data-print-target="jinhu-materials-list">列印 / PDF</button>
+        </div>
       </div>
       <div class="materials-note">以下依錦湖國小課程規劃中的「教學材料費」整理；共用工具可依學生人數與分組數調整。進行電路、小馬達、剪裁與濾水活動時，請由教師示範並全程督導。</div>
       <article class="materials-day">
@@ -1482,7 +1515,10 @@
     <section class="table-card xinshan-materials-section" id="xinshan-materials-list">
       <div class="table-head">
         <h2>新山國小活動工具、設備及材料清單</h2>
-        <div class="result-count">依 8/3-8/7 活動整理</div>
+        <div class="table-actions">
+          <div class="result-count">依 8/3-8/7 活動整理</div>
+          <button class="print-action" type="button" data-print-target="xinshan-materials-list">列印 / PDF</button>
+        </div>
       </div>
       <article class="materials-day">
         <h3 class="materials-day-title">8/3（星期一）　陳賢宗／何晨瑋老師</h3>
@@ -2434,6 +2470,34 @@
       searchInput.value = '';
       render();
     });
+
+    let activePrintTarget = null;
+
+    function clearPrintTarget() {
+      document.body.classList.remove('section-printing');
+      if (activePrintTarget) {
+        activePrintTarget.classList.remove('print-target');
+        activePrintTarget = null;
+      }
+    }
+
+    function printSection(sectionId) {
+      clearPrintTarget();
+      const target = document.getElementById(sectionId);
+      if (!target) return;
+      activePrintTarget = target;
+      document.body.classList.add('section-printing');
+      target.classList.add('print-target');
+      requestAnimationFrame(() => {
+        window.print();
+        setTimeout(clearPrintTarget, 800);
+      });
+    }
+
+    document.querySelectorAll('[data-print-target]').forEach(button => {
+      button.addEventListener('click', () => printSection(button.dataset.printTarget));
+    });
+    window.addEventListener('afterprint', clearPrintTarget);
     render();
   </script>
 </body>
