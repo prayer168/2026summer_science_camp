@@ -41,9 +41,11 @@
       box-shadow: var(--shadow);
     }
     .hero-card { padding: 30px; }
+    .title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
     .eyebrow { color: var(--brand); font-weight: 800; letter-spacing: .08em; font-size: 14px; }
     h1 { margin: 8px 0 12px; font-size: clamp(30px, 4vw, 48px); line-height: 1.15; }
     .lead { color: var(--muted); margin: 0; font-size: 17px; }
+    .top-print { white-space: nowrap; background: #0f172a; box-shadow: 0 8px 18px rgba(15, 23, 42, .18); }
     .summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 20px; }
     .kpi { border-radius: 20px; padding: 18px; background: #f9fbff; border: 1px solid var(--line); }
     .kpi strong { display: block; font-size: 30px; line-height: 1; }
@@ -130,6 +132,7 @@
     .materials-note { background: var(--soft-yellow); border: 1px solid #fde68a; border-radius: 16px; padding: 12px 14px; margin: 0 16px 16px; }
     @media (max-width: 780px) {
       .hero, .teacher-card-grid { grid-template-columns: 1fr; }
+      .title-row { flex-direction: column; }
       .materials-grid, .material-body { grid-template-columns: 1fr; }
       .material-list:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
       .summary-grid { grid-template-columns: repeat(2, 1fr); }
@@ -138,7 +141,7 @@
     }
     @media print {
       body { background: #fff; }
-      .toolbar, button, .print-action { display: none !important; }
+      .toolbar, button, .print-action, .top-print { display: none !important; }
       body.section-printing header,
       body.section-printing footer,
       body.section-printing .toolbar,
@@ -158,9 +161,14 @@
   <header class="wrap">
     <div class="hero">
       <section class="hero-card">
-        <div class="eyebrow">115年夏日樂學計畫</div>
-        <h1>雲林口湖國小</h1>
-        <p class="lead">依日期與時間排序，整合甲班、乙班授課資訊，可用教師、班別與關鍵字快速篩選。</p>
+        <div class="title-row">
+          <div>
+            <div class="eyebrow">課程與材料整合</div>
+            <h1>115 夏日樂學計畫</h1>
+          </div>
+          <button class="top-print" type="button" onclick="window.print()">列印 / 另存 PDF</button>
+        </div>
+        <p class="lead">依學校分區整理雲林口湖國小、二溪國小、錦湖國小與新山國小課程清單及材料清單。</p>
       </section>
       <aside class="hero-card summary-grid" aria-label="課表摘要">
         <div class="kpi"><strong>60</strong><span>總授課節數</span></div>
@@ -209,12 +217,11 @@
         <input id="searchInput" type="search" placeholder="輸入課程、日期、時間…" />
       </div>
       <button id="resetBtn" class="secondary">清除篩選</button>
-      <button onclick="window.print()">列印</button>
     </section>
 
     <section class="table-card" id="kouhu-schedule">
       <div class="table-head">
-        <h2>授課明細</h2>
+        <h2>雲林口湖國小課程清單</h2>
         <div class="table-actions">
           <div class="result-count" id="resultCount">共 60 筆</div>
           <button class="print-action" type="button" data-print-target="kouhu-schedule">列印 / PDF</button>
@@ -236,7 +243,7 @@
 
     <section class="table-card erxi-section" id="erxi-schedule">
       <div class="table-head">
-        <h2>二溪國小夏日樂學課程</h2>
+        <h2>二溪國小課程清單</h2>
         <div class="table-actions">
           <div class="result-count">7/20-7/24，共 20 筆</div>
           <button class="print-action" type="button" data-print-target="erxi-schedule">列印 / PDF</button>
@@ -278,7 +285,7 @@
 
     <section class="table-card jinhu-section" id="jinhu-schedule">
       <div class="table-head">
-        <h2>錦湖國小夏日樂學課程</h2>
+        <h2>錦湖國小課程清單</h2>
         <div class="table-actions">
           <div class="result-count">7/27-7/31，共 20 筆</div>
           <button class="print-action" type="button" data-print-target="jinhu-schedule">列印 / PDF</button>
@@ -321,7 +328,7 @@
 
     <section class="table-card xinshan-section" id="xinshan-schedule">
       <div class="table-head">
-        <h2>新山國小夏日樂學營</h2>
+        <h2>新山國小課程清單</h2>
         <div class="table-actions">
           <div class="result-count">8/3-8/7，共 20 筆</div>
           <button class="print-action" type="button" data-print-target="xinshan-schedule">列印 / PDF</button>
@@ -331,30 +338,30 @@
         <table>
           <thead>
             <tr>
-              <th>日期</th><th>星期</th><th>學校</th><th>課程</th><th>節次</th><th>時間</th><th>教師</th><th>活動</th>
+              <th>日期</th><th>星期</th><th>學校</th><th>課程名稱</th><th>節次</th><th>時間</th><th>教師</th><th>班群</th>
             </tr>
           </thead>
           <tbody>
-              <tr><td class="date-cell">8/3</td><td>一</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險1</td><td>第1節</td><td>08:30-09:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>樹的年輪告訴你什麼</td></tr>
-              <tr><td class="date-cell">8/3</td><td>一</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險1</td><td>第2節</td><td>09:20-10:05</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>樹的年輪告訴你什麼</td></tr>
-              <tr><td class="date-cell">8/3</td><td>一</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險2</td><td>第1節</td><td>10:30-11:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>苔蘚觀察任務：潮濕角落的小宇宙</td></tr>
-              <tr><td class="date-cell">8/3</td><td>一</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險2</td><td>第2節</td><td>11:15-12:00</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>苔蘚觀察任務：潮濕角落的小宇宙</td></tr>
-              <tr><td class="date-cell">8/4</td><td>二</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險1</td><td>第1節</td><td>08:30-09:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>種子手作</td></tr>
-              <tr><td class="date-cell">8/4</td><td>二</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險1</td><td>第2節</td><td>09:20-10:05</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>種子手作</td></tr>
-              <tr><td class="date-cell">8/4</td><td>二</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險2</td><td>第1節</td><td>10:30-11:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>種子滑翔機大挑戰</td></tr>
-              <tr><td class="date-cell">8/4</td><td>二</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險2</td><td>第2節</td><td>11:15-12:00</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>種子滑翔機大挑戰</td></tr>
-              <tr><td class="date-cell">8/5</td><td>三</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險1</td><td>第1節</td><td>08:30-09:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>製作自然拼貼畫</td></tr>
-              <tr><td class="date-cell">8/5</td><td>三</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險1</td><td>第2節</td><td>09:20-10:05</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>製作自然拼貼畫</td></tr>
-              <tr><td class="date-cell">8/5</td><td>三</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險2</td><td>第1節</td><td>10:30-11:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>泥炭球的祕密（仿水苔球微生態）</td></tr>
-              <tr><td class="date-cell">8/5</td><td>三</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險2</td><td>第2節</td><td>11:15-12:00</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>泥炭球的祕密（仿水苔球微生態）</td></tr>
-              <tr><td class="date-cell">8/6</td><td>四</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險1</td><td>第1節</td><td>08:30-09:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>野外求生生火大考驗</td></tr>
-              <tr><td class="date-cell">8/6</td><td>四</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險1</td><td>第2節</td><td>09:20-10:05</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>野外求生生火大考驗</td></tr>
-              <tr><td class="date-cell">8/6</td><td>四</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險2</td><td>第1節</td><td>10:30-11:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>微型雨林瓶實驗室</td></tr>
-              <tr><td class="date-cell">8/6</td><td>四</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險2</td><td>第2節</td><td>11:15-12:00</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>微型雨林瓶實驗室</td></tr>
-              <tr><td class="date-cell">8/7</td><td>五</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險1</td><td>第1節</td><td>08:30-09:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>自然指南針與辨位術</td></tr>
-              <tr><td class="date-cell">8/7</td><td>五</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險1</td><td>第2節</td><td>09:20-10:05</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>自然指南針與辨位術</td></tr>
-              <tr><td class="date-cell">8/7</td><td>五</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險2</td><td>第1節</td><td>10:30-11:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>環保紙再造小工坊</td></tr>
-              <tr><td class="date-cell">8/7</td><td>五</td><td><span class="badge class-b">新山國小</span></td><td class="course">生態探險2</td><td>第2節</td><td>11:15-12:00</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>環保紙再造小工坊</td></tr>
+              <tr><td class="date-cell">8/3</td><td>一</td><td><span class="badge class-b">新山國小</span></td><td class="course">樹的年輪告訴你什麼</td><td>第1節</td><td>08:30-09:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險1</td></tr>
+              <tr><td class="date-cell">8/3</td><td>一</td><td><span class="badge class-b">新山國小</span></td><td class="course">樹的年輪告訴你什麼</td><td>第2節</td><td>09:20-10:05</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險1</td></tr>
+              <tr><td class="date-cell">8/3</td><td>一</td><td><span class="badge class-b">新山國小</span></td><td class="course">苔蘚觀察任務：潮濕角落的小宇宙</td><td>第1節</td><td>10:30-11:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險2</td></tr>
+              <tr><td class="date-cell">8/3</td><td>一</td><td><span class="badge class-b">新山國小</span></td><td class="course">苔蘚觀察任務：潮濕角落的小宇宙</td><td>第2節</td><td>11:15-12:00</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險2</td></tr>
+              <tr><td class="date-cell">8/4</td><td>二</td><td><span class="badge class-b">新山國小</span></td><td class="course">種子手作</td><td>第1節</td><td>08:30-09:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險1</td></tr>
+              <tr><td class="date-cell">8/4</td><td>二</td><td><span class="badge class-b">新山國小</span></td><td class="course">種子手作</td><td>第2節</td><td>09:20-10:05</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險1</td></tr>
+              <tr><td class="date-cell">8/4</td><td>二</td><td><span class="badge class-b">新山國小</span></td><td class="course">種子滑翔機大挑戰</td><td>第1節</td><td>10:30-11:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險2</td></tr>
+              <tr><td class="date-cell">8/4</td><td>二</td><td><span class="badge class-b">新山國小</span></td><td class="course">種子滑翔機大挑戰</td><td>第2節</td><td>11:15-12:00</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險2</td></tr>
+              <tr><td class="date-cell">8/5</td><td>三</td><td><span class="badge class-b">新山國小</span></td><td class="course">製作自然拼貼畫</td><td>第1節</td><td>08:30-09:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險1</td></tr>
+              <tr><td class="date-cell">8/5</td><td>三</td><td><span class="badge class-b">新山國小</span></td><td class="course">製作自然拼貼畫</td><td>第2節</td><td>09:20-10:05</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險1</td></tr>
+              <tr><td class="date-cell">8/5</td><td>三</td><td><span class="badge class-b">新山國小</span></td><td class="course">泥炭球的祕密（仿水苔球微生態）</td><td>第1節</td><td>10:30-11:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險2</td></tr>
+              <tr><td class="date-cell">8/5</td><td>三</td><td><span class="badge class-b">新山國小</span></td><td class="course">泥炭球的祕密（仿水苔球微生態）</td><td>第2節</td><td>11:15-12:00</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險2</td></tr>
+              <tr><td class="date-cell">8/6</td><td>四</td><td><span class="badge class-b">新山國小</span></td><td class="course">野外求生生火大考驗</td><td>第1節</td><td>08:30-09:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險1</td></tr>
+              <tr><td class="date-cell">8/6</td><td>四</td><td><span class="badge class-b">新山國小</span></td><td class="course">野外求生生火大考驗</td><td>第2節</td><td>09:20-10:05</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險1</td></tr>
+              <tr><td class="date-cell">8/6</td><td>四</td><td><span class="badge class-b">新山國小</span></td><td class="course">微型雨林瓶實驗室</td><td>第1節</td><td>10:30-11:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險2</td></tr>
+              <tr><td class="date-cell">8/6</td><td>四</td><td><span class="badge class-b">新山國小</span></td><td class="course">微型雨林瓶實驗室</td><td>第2節</td><td>11:15-12:00</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險2</td></tr>
+              <tr><td class="date-cell">8/7</td><td>五</td><td><span class="badge class-b">新山國小</span></td><td class="course">自然指南針與辨位術</td><td>第1節</td><td>08:30-09:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險1</td></tr>
+              <tr><td class="date-cell">8/7</td><td>五</td><td><span class="badge class-b">新山國小</span></td><td class="course">自然指南針與辨位術</td><td>第2節</td><td>09:20-10:05</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險1</td></tr>
+              <tr><td class="date-cell">8/7</td><td>五</td><td><span class="badge class-b">新山國小</span></td><td class="course">環保紙再造小工坊</td><td>第1節</td><td>10:30-11:15</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險2</td></tr>
+              <tr><td class="date-cell">8/7</td><td>五</td><td><span class="badge class-b">新山國小</span></td><td class="course">環保紙再造小工坊</td><td>第2節</td><td>11:15-12:00</td><td><span class="badge teacher-a">陳賢宗／何晨瑋</span></td><td>生態探險2</td></tr>
           </tbody>
         </table>
       </div>
@@ -368,7 +375,7 @@
 
     <section class="table-card materials-section" id="materials-list">
       <div class="table-head">
-        <h2>活動工具、設備及材料清單</h2>
+        <h2>雲林口湖國小材料清單</h2>
         <div class="table-actions">
           <div class="result-count">依日期與活動整理</div>
           <button class="print-action" type="button" data-print-target="materials-list">列印 / PDF</button>
@@ -1016,7 +1023,7 @@
 
     <section class="table-card erxi-materials-section" id="erxi-materials-list">
       <div class="table-head">
-        <h2>二溪國小活動工具、設備及材料清單</h2>
+        <h2>二溪國小材料清單</h2>
         <div class="table-actions">
           <div class="result-count">依 7/20-7/24 活動整理</div>
           <button class="print-action" type="button" data-print-target="erxi-materials-list">列印 / PDF</button>
@@ -1266,7 +1273,7 @@
 
     <section class="table-card jinhu-materials-section" id="jinhu-materials-list">
       <div class="table-head">
-        <h2>錦湖國小活動工具、設備及材料清單</h2>
+        <h2>錦湖國小材料清單</h2>
         <div class="table-actions">
           <div class="result-count">依 7/27-7/31 活動整理</div>
           <button class="print-action" type="button" data-print-target="jinhu-materials-list">列印 / PDF</button>
@@ -1514,7 +1521,7 @@
 
     <section class="table-card xinshan-materials-section" id="xinshan-materials-list">
       <div class="table-head">
-        <h2>新山國小活動工具、設備及材料清單</h2>
+        <h2>新山國小材料清單</h2>
         <div class="table-actions">
           <div class="result-count">依 8/3-8/7 活動整理</div>
           <button class="print-action" type="button" data-print-target="xinshan-materials-list">列印 / PDF</button>
