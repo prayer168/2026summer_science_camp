@@ -82,6 +82,14 @@
     .bar { height: 10px; border-radius: 999px; background: #e5e7eb; overflow: hidden; margin: 10px 0 4px; }
     .bar > i { display: block; height: 100%; width: 50%; background: linear-gradient(90deg, var(--brand), #60a5fa); }
     .teacher-card:nth-child(2) .bar > i { background: linear-gradient(90deg, var(--brand-2), #86efac); }
+    .copy-card { padding: 20px; margin-bottom: 22px; }
+    .copy-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .copy-head h2 { margin: 0; font-size: 22px; }
+    .copy-status { color: var(--brand-2); font-weight: 800; font-size: 14px; }
+    .facebook-copy {
+      width: 100%; min-height: 360px; resize: vertical; padding: 16px; border: 1px solid var(--line);
+      border-radius: 16px; background: #f8fafc; color: var(--ink); font: inherit; line-height: 1.7;
+    }
     .table-card { overflow: hidden; }
     .table-head { padding: 18px 20px; display: flex; justify-content: space-between; gap: 12px; align-items: center; border-bottom: 1px solid var(--line); }
     .table-head h2 { margin: 0; font-size: 22px; }
@@ -141,7 +149,7 @@
     }
     @media print {
       body { background: #fff; }
-      .toolbar, button, .print-action, .top-print { display: none !important; }
+      .toolbar, button, .print-action, .top-print, .copy-card { display: none !important; }
       body.section-printing header,
       body.section-printing footer,
       body.section-printing .toolbar,
@@ -193,6 +201,39 @@
         <div class="bar"><i style="width: 40%;"></i></div>
         <div class="chips"><span class="chip">甲班 12 節</span><span class="chip">乙班 12 節</span></div>
       </article>
+    </section>
+
+    <section class="panel copy-card" aria-label="臉書貼文文案">
+      <div class="copy-head">
+        <h2>臉書貼文</h2>
+        <div class="table-actions">
+          <span class="copy-status" id="copyStatus" aria-live="polite"></span>
+          <button type="button" id="copyFacebookPost">一鍵複製</button>
+        </div>
+      </div>
+      <textarea class="facebook-copy" id="facebookPost" readonly>115 夏日樂學計畫｜四校夏令營課程開跑！
+
+這個夏天，我們把科學觀察、生活實驗、自然探索與手作任務帶進校園，陪孩子在動手做、用眼看、開口分享的過程中，發現學習原來可以這麼有趣。
+
+本次課程包含：
+雲林口湖國小：從聲音、力學、熱、水、光、電路到天氣觀察，設計甲班、乙班分段課程，讓孩子在生活情境中理解科學。
+二溪國小：以校園自然觀察、植物探索、葉子工藝、昆蟲標本、野外求生與成果發表為主軸，帶孩子親近土地與自然。
+錦湖國小：安排飛行、浮沉、光影、電路、環境淨水等主題，透過挑戰任務培養觀察力、問題解決力與合作精神。
+新山國小：規劃「生態探險」系列，包含樹的年輪、苔蘚觀察、種子滑翔機、自然拼貼、微型雨林瓶、指南針辨位與環保紙再造等活動。
+
+每一堂課都不只是完成作品，而是讓孩子練習提出問題、觀察現象、嘗試方法、整理發現。期待孩子們在夏日樂學營中，把好奇心變成行動，把課本裡的知識變成看得見、摸得到、說得出的學習經驗。
+
+歡迎一起關注孩子們的夏日學習旅程！
+
+#115夏日樂學計畫
+#夏日樂學營
+#科學教育
+#生態探索
+#動手做中學
+#雲林口湖國小
+#二溪國小
+#錦湖國小
+#新山國小</textarea>
     </section>
 
     <section class="toolbar" aria-label="篩選工具列">
@@ -2476,6 +2517,33 @@
       classFilter.value = '';
       searchInput.value = '';
       render();
+    });
+
+    const facebookPost = document.getElementById('facebookPost');
+    const copyFacebookPost = document.getElementById('copyFacebookPost');
+    const copyStatus = document.getElementById('copyStatus');
+
+    async function copyTextToClipboard(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      facebookPost.focus();
+      facebookPost.select();
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+    }
+
+    copyFacebookPost.addEventListener('click', async () => {
+      try {
+        await copyTextToClipboard(facebookPost.value);
+        copyStatus.textContent = '已複製';
+        setTimeout(() => {
+          copyStatus.textContent = '';
+        }, 1800);
+      } catch (error) {
+        copyStatus.textContent = '請手動選取複製';
+      }
     });
 
     let activePrintTarget = null;
