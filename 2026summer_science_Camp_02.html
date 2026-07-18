@@ -2516,6 +2516,14 @@
     const schoolTabs = document.querySelectorAll('[data-school-tab]');
     const schoolSections = document.querySelectorAll('[data-school-section]');
     const schoolTabHint = document.getElementById('schoolTabHint');
+    const mainContent = document.querySelector('main.wrap');
+    const originalSchoolSectionOrder = Array.from(schoolSections);
+    const schoolSectionPairs = {
+      kouhu: ['kouhu-schedule', 'materials-list'],
+      erxi: ['erxi-schedule', 'erxi-materials-list'],
+      jinhu: ['jinhu-schedule', 'jinhu-materials-list'],
+      xinshan: ['xinshan-schedule', 'xinshan-materials-list']
+    };
     const schoolNames = {
       all: '全部學校',
       kouhu: '雲林口湖國小',
@@ -2580,7 +2588,24 @@
       decorateCourseCells(tbody);
     }
 
+    function restoreSchoolSectionOrder() {
+      originalSchoolSectionOrder.forEach(section => mainContent.appendChild(section));
+    }
+
+    function pairSchoolMaterialsAfterSchedule(school) {
+      const [scheduleId, materialsId] = schoolSectionPairs[school] || [];
+      const scheduleSection = document.getElementById(scheduleId);
+      const materialsSection = document.getElementById(materialsId);
+      if (scheduleSection && materialsSection) {
+        scheduleSection.insertAdjacentElement('afterend', materialsSection);
+      }
+    }
+
     function selectSchoolTab(school) {
+      restoreSchoolSectionOrder();
+      if (school !== 'all') {
+        pairSchoolMaterialsAfterSchedule(school);
+      }
       schoolTabs.forEach(tab => {
         tab.setAttribute('aria-selected', tab.dataset.schoolTab === school ? 'true' : 'false');
       });
