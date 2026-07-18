@@ -135,8 +135,7 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-5px); }
     }
-    .school-tabs, .content-tabs { margin: 22px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-    .content-tabs { margin-top: -8px; }
+    .school-tabs { margin: 22px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
     .school-tab {
       color: #334155; background: #fff; border: 1px solid var(--line); box-shadow: 0 4px 16px rgba(15,23,42,.05);
       border-radius: 999px; padding: 10px 16px;
@@ -145,7 +144,6 @@
       color: #fff; background: var(--brand); border-color: var(--brand);
       box-shadow: 0 8px 18px rgba(37, 99, 235, .22);
     }
-    .content-tabs .school-tab[aria-selected="true"] { background: var(--brand-2); border-color: var(--brand-2); }
     [hidden] { display: none !important; }
     .control {
       display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--line);
@@ -230,11 +228,10 @@
     @media print {
       body { background: #fff; }
       body::before, .theme-strip { display: none !important; }
-      .school-tabs, .content-tabs, button, .print-action, .top-print { display: none !important; }
+      .school-tabs, button, .print-action, .top-print { display: none !important; }
       body.section-printing header,
       body.section-printing footer,
       body.section-printing .school-tabs,
-      body.section-printing .content-tabs,
       body.section-printing .panel,
       body.section-printing main > :not(.print-target) { display: none !important; }
       body.section-printing main { width: 100%; margin: 0; }
@@ -292,13 +289,7 @@
       <button class="school-tab" type="button" role="tab" aria-selected="false" data-school-tab="xinshan">新山國小</button>
     </section>
 
-    <section class="content-tabs panel" aria-label="內容頁籤" role="tablist">
-      <button class="school-tab" type="button" role="tab" aria-selected="true" data-content-tab="all">全部內容</button>
-      <button class="school-tab" type="button" role="tab" aria-selected="false" data-content-tab="course">課程清單</button>
-      <button class="school-tab" type="button" role="tab" aria-selected="false" data-content-tab="materials">材料清單</button>
-    </section>
-
-    <section class="table-card" id="kouhu-schedule" data-school-section="kouhu" data-section-type="course">
+    <section class="table-card" id="kouhu-schedule" data-school-section="kouhu">
       <div class="table-head">
         <h2><span class="section-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3v5l-4 7a4 4 0 0 0 3.5 6h11a4 4 0 0 0 3.5-6l-4-7V3"/><path d="M9 3h6"/><path d="M6.5 15h11"/></svg></span>雲林口湖國小課程清單</h2>
         <div class="table-actions">
@@ -320,7 +311,7 @@
     </section>
 
 
-    <section class="table-card erxi-section" id="erxi-schedule" data-school-section="erxi" data-section-type="course">
+    <section class="table-card erxi-section" id="erxi-schedule" data-school-section="erxi">
       <div class="table-head">
         <h2><span class="section-mark mark-nature" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21V9"/><path d="M12 9C9 4 5 4 3 7c3 1 5 2 9 2Z"/><path d="M12 9c3-5 7-5 9-2-3 1-5 2-9 2Z"/></svg></span>二溪國小課程清單</h2>
         <div class="table-actions">
@@ -362,7 +353,7 @@
     </section>
     <!-- /erxi-schedule -->
 
-    <section class="table-card jinhu-section" id="jinhu-schedule" data-school-section="jinhu" data-section-type="course">
+    <section class="table-card jinhu-section" id="jinhu-schedule" data-school-section="jinhu">
       <div class="table-head">
         <h2><span class="section-mark mark-maker" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 15 12 3l7 12-7-3-7 3Z"/><path d="M12 12v9"/><path d="M9 18h6"/></svg></span>錦湖國小課程清單</h2>
         <div class="table-actions">
@@ -405,7 +396,7 @@
     <!-- /jinhu-schedule -->
 
 
-    <section class="table-card xinshan-section" id="xinshan-schedule" data-school-section="xinshan" data-section-type="course">
+    <section class="table-card xinshan-section" id="xinshan-schedule" data-school-section="xinshan">
       <div class="table-head">
         <h2><span class="section-mark mark-eco" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="4"/><path d="M8 16h8"/><path d="M12 16V9"/><path d="M9 10c2-3 5-3 6 0"/></svg></span>新山國小課程清單</h2>
         <div class="table-actions">
@@ -452,7 +443,7 @@
 
 
 
-    <section class="table-card materials-section" id="materials-list" data-school-section="kouhu" data-section-type="materials">
+    <section class="table-card materials-section" id="materials-list" data-school-section="kouhu">
       <div class="table-head">
         <h2><span class="section-mark mark-materials" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M7 7v13h10V7"/><path d="M9 4h6l1 3H8l1-3Z"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></span>雲林口湖國小材料清單</h2>
         <div class="table-actions">
@@ -1100,7 +1091,7 @@
         </div>
       </article>
 
-    <section class="table-card erxi-materials-section" id="erxi-materials-list" data-school-section="erxi" data-section-type="materials">
+    <section class="table-card erxi-materials-section" id="erxi-materials-list" data-school-section="erxi">
       <div class="table-head">
         <h2><span class="section-mark mark-materials" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M7 7v13h10V7"/><path d="M9 4h6l1 3H8l1-3Z"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></span>二溪國小材料清單</h2>
         <div class="table-actions">
@@ -1348,7 +1339,7 @@
     </section>
     <!-- /erxi-materials-list -->
 
-    <section class="table-card jinhu-materials-section" id="jinhu-materials-list" data-school-section="jinhu" data-section-type="materials">
+    <section class="table-card jinhu-materials-section" id="jinhu-materials-list" data-school-section="jinhu">
       <div class="table-head">
         <h2><span class="section-mark mark-materials" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M7 7v13h10V7"/><path d="M9 4h6l1 3H8l1-3Z"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></span>錦湖國小材料清單</h2>
         <div class="table-actions">
@@ -1596,7 +1587,7 @@
     <!-- /jinhu-materials-list -->
 
 
-    <section class="table-card xinshan-materials-section" id="xinshan-materials-list" data-school-section="xinshan" data-section-type="materials">
+    <section class="table-card xinshan-materials-section" id="xinshan-materials-list" data-school-section="xinshan">
       <div class="table-head">
         <h2><span class="section-mark mark-materials" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M7 7v13h10V7"/><path d="M9 4h6l1 3H8l1-3Z"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></span>新山國小材料清單</h2>
         <div class="table-actions">
@@ -2517,10 +2508,7 @@
     const count = document.getElementById('resultCount');
     const empty = document.getElementById('emptyMsg');
     const schoolTabs = document.querySelectorAll('[data-school-tab]');
-    const contentTabs = document.querySelectorAll('[data-content-tab]');
     const schoolSections = document.querySelectorAll('[data-school-section]');
-    let activeSchool = 'all';
-    let activeContent = 'all';
 
     function escapeHtml(value) {
       return String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
@@ -2578,35 +2566,17 @@
       decorateCourseCells(tbody);
     }
 
-    function updateVisibleSections() {
-      schoolSections.forEach(section => {
-        const schoolMatches = activeSchool === 'all' || section.dataset.schoolSection === activeSchool;
-        const contentMatches = activeContent === 'all' || section.dataset.sectionType === activeContent;
-        section.hidden = !schoolMatches || !contentMatches;
-      });
-    }
-
     function selectSchoolTab(school) {
-      activeSchool = school;
       schoolTabs.forEach(tab => {
         tab.setAttribute('aria-selected', tab.dataset.schoolTab === school ? 'true' : 'false');
       });
-      updateVisibleSections();
-    }
-
-    function selectContentTab(content) {
-      activeContent = content;
-      contentTabs.forEach(tab => {
-        tab.setAttribute('aria-selected', tab.dataset.contentTab === content ? 'true' : 'false');
+      schoolSections.forEach(section => {
+        section.hidden = school !== 'all' && section.dataset.schoolSection !== school;
       });
-      updateVisibleSections();
     }
 
     schoolTabs.forEach(tab => {
       tab.addEventListener('click', () => selectSchoolTab(tab.dataset.schoolTab));
-    });
-    contentTabs.forEach(tab => {
-      tab.addEventListener('click', () => selectContentTab(tab.dataset.contentTab));
     });
 
     let activePrintTarget = null;
@@ -2638,7 +2608,6 @@
     window.addEventListener('afterprint', clearPrintTarget);
     render();
     selectSchoolTab('all');
-    selectContentTab('all');
     decorateCourseCells();
   </script>
 </body>
