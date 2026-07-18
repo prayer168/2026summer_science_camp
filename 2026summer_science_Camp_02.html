@@ -2549,6 +2549,12 @@
         cell.insertAdjacentHTML('afterbegin', `<span class="course-emoji" aria-hidden="true">${emoji}</span>`);
         cell.dataset.emojiDecorated = 'true';
       });
+      root.querySelectorAll('.material-card h4').forEach(heading => {
+        if (heading.dataset.emojiDecorated === 'true') return;
+        const emoji = courseEmoji(heading.textContent.trim());
+        heading.insertAdjacentHTML('afterbegin', `<span class="course-emoji" aria-hidden="true">${emoji}</span>`);
+        heading.dataset.emojiDecorated = 'true';
+      });
     }
 
     function render() {
