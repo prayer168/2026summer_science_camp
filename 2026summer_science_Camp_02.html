@@ -178,6 +178,7 @@
     .teacher-a { background: #eff6ff; color: #1d4ed8; }
     .teacher-b { background: #ecfdf5; color: #047857; }
     .course { font-weight: 800; }
+    .course-emoji { display: inline-block; margin-right: 6px; }
     footer { color: var(--muted); font-size: 13px; padding: 24px 0 40px; }
     .empty { padding: 36px; text-align: center; color: var(--muted); font-weight: 700; }
 
@@ -2521,6 +2522,35 @@
       return String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
     }
 
+    function courseEmoji(courseName) {
+      const text = String(courseName);
+      const rules = [
+        [/天氣|氣象|雲|雨|風/, '🌦️'],
+        [/水|浮|潛|濾|雨量|密度/, '💧'],
+        [/電|LED|馬達|風扇|電磁/, '⚡'],
+        [/光|影|潛望|彩色光盤/, '🔦'],
+        [/聲音|聲波|音/, '🔊'],
+        [/熱|溫度|火|生火|燃燒/, '🔥'],
+        [/力|摩擦|彈簧|斜坡/, '🧲'],
+        [/紙飛機|飛行|吹箭|火箭|氣球/, '🚀'],
+        [/植物|葉|根|莖|花|草|種子|年輪|苔蘚|雨林|指南針|自然|校園觀察/, '🌿'],
+        [/昆蟲|爬蟲|標本|顯微|微觀/, '🔍'],
+        [/拼貼|手作|槌染|藍曬|拓印|書籤|紙再造|環保/, '🎨'],
+        [/成果|發表|挑戰|任務|偵探|闖關/, '🏅']
+      ];
+      const match = rules.find(([pattern]) => pattern.test(text));
+      return match ? match[1] : '🔬';
+    }
+
+    function decorateCourseCells(root = document) {
+      root.querySelectorAll('td.course').forEach(cell => {
+        if (cell.dataset.emojiDecorated === 'true') return;
+        const emoji = courseEmoji(cell.textContent.trim());
+        cell.insertAdjacentHTML('afterbegin', `<span class="course-emoji" aria-hidden="true">${emoji}</span>`);
+        cell.dataset.emojiDecorated = 'true';
+      });
+    }
+
     function render() {
       const t = teacherFilter.value;
       const c = classFilter.value;
@@ -2542,6 +2572,7 @@
       `).join('');
       count.textContent = `共 ${rows.length} 筆`;
       empty.hidden = rows.length !== 0;
+      decorateCourseCells(tbody);
     }
 
     [teacherFilter, classFilter, searchInput].forEach(el => el.addEventListener('input', render));
@@ -2580,6 +2611,7 @@
     });
     window.addEventListener('afterprint', clearPrintTarget);
     render();
+    decorateCourseCells();
   </script>
 </body>
 </html>
